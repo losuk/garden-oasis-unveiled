@@ -13,18 +13,18 @@ function Home() {
         <img
           src="/images/hero.png"
           alt="The Emin Pasha at dusk"
-          className="absolute inset-0 h-full w-full object-cover animate-kenburns"
+          className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={1200}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/50" />
         <div className="relative z-10 flex h-full flex-col justify-end pb-24 md:pb-32">
-          <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 text-cream animate-fade-up">
-            <p className="eyebrow text-gold-soft">Nakasero · Kampala · Since 2007</p>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-[7.5rem] leading-[0.9] max-w-5xl">
-              A garden hideaway<br />in the heart of the city.
+          <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 text-cream">
+            <p className="text-sm tracking-[0.2em] uppercase text-cream/80 mb-4">Nakasero · Kampala · Since 2007</p>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-[6rem] leading-[1.1] max-w-4xl">
+              A quiet place to stay, right in the middle of Kampala.
             </h1>
-            <div className="mt-12 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="https://theeminpashahotelandspa.ihotelier.com/book/dates-of-stay"
                 target="_blank"
@@ -38,9 +38,6 @@ function Home() {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/70 text-[10px] tracking-[0.4em] uppercase animate-fade-in-slow">
-          Scroll
         </div>
       </section>
 
@@ -155,41 +152,53 @@ function Home() {
       </section>
 
       {/* OFFERS */}
-      <section id="book" className="bg-forest text-cream py-32 md:py-40">
+      <section id="book" className="bg-secondary/30 py-32 md:py-40">
         <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
-          <div className="text-center">
-            <p className="eyebrow text-gold-soft">Special Offers</p>
-            <h2 className="mt-4 font-display text-4xl md:text-6xl">
-              Considered stays, gently priced.
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+            <div>
+              <p className="eyebrow">What's On</p>
+              <h2 className="mt-4 font-display text-4xl md:text-6xl text-forest max-w-2xl">
+                Things we think you’ll love.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-md">
+              From sunset happy hours to live music under the stars, here’s what’s happening at The Emin Pasha.
+            </p>
           </div>
-          <div className="mt-20 grid gap-10 md:grid-cols-3">
-            {offers.map((o) => (
+          <div className="grid gap-8 md:grid-cols-3">
+            {offers.map((o, i) => (
               <div
                 key={o.title}
-                className="border-t border-cream/20 pt-8"
+                className="bg-background border border-border p-8 hover:border-gold/50 transition-all duration-500"
               >
-                <p className="text-[11px] tracking-[0.3em] uppercase text-gold-soft">
-                  {o.tag}
-                </p>
-                <h3 className="mt-4 font-display text-3xl leading-tight">{o.title}</h3>
-                <p className="mt-5 text-sm font-light leading-relaxed opacity-80">
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-[11px] tracking-[0.3em] uppercase text-sage">
+                    {o.tag}
+                  </p>
+                  <div className="w-8 h-px bg-gold"></div>
+                </div>
+                <h3 className="font-display text-3xl leading-tight text-forest mb-4">{o.title}</h3>
+                <p className="text-base font-light leading-relaxed text-muted-foreground mb-8">
                   {o.copy}
                 </p>
-                <a href="#book" className="mt-8 inline-block link-underline text-[11px] tracking-[0.28em] uppercase text-gold-soft">
-                  Enquire
+                <a href="#book" className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-forest link-underline">
+                  Learn more
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                    <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </a>
               </div>
             ))}
           </div>
-          <div className="mt-20 text-center">
+          <div className="mt-16 text-center">
             <a
               href="https://theeminpashahotelandspa.ihotelier.com/book/dates-of-stay"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-[11px] tracking-[0.28em] uppercase font-medium bg-cream text-forest border border-cream hover:bg-transparent hover:text-cream transition-all duration-500"
+              className="btn-primary"
             >
-              Book Now
+              Reserve your stay
             </a>
           </div>
         </div>
@@ -303,18 +312,18 @@ function Pillar({
 
 const offers = [
   {
-    tag: "June Offer",
-    title: "Unwind & recharge",
-    copy: "A relaxing stay designed around your comfort — $95 for BB Single Occupancy, $100 for Double Occupancy.",
+    tag: "June Special",
+    title: "Stay with us this June",
+    copy: "$95 for single occupancy (bed & breakfast) or $100 for double — simple, straightforward pricing for a comfortable stay.",
   },
   {
-    tag: "Daily · 3–8PM",
-    title: "The Equatorial Sunset Happy Hour",
-    copy: "Mon–Sun (except Friday) in the Lima & Lower Gardens — enjoy sunset combos and special pricing on house cocktails as the sun sets over Kampala.",
+    tag: "Every day · 3–8PM",
+    title: "Sunset happy hour",
+    copy: "Grab a drink in the Lima & Lower Gardens as the sun goes down (except Fridays). Sunset combos and house cocktails at special prices.",
   },
   {
-    tag: "Friday Night",
-    title: "Live band under the stars",
-    copy: "Every Friday evening, enjoy live music from local Kampala bands in our garden courtyard — the perfect way to end your week.",
+    tag: "Fridays",
+    title: "Live music in the garden",
+    copy: "Kampala’s best local bands play in our courtyard every Friday night — bring your friends, grab a drink, and enjoy the evening.",
   },
 ];
