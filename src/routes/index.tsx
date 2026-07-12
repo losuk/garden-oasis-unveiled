@@ -20,7 +20,6 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/50" />
         <div className="relative z-10 flex h-full flex-col justify-end pb-24 md:pb-32">
           <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 text-cream">
-            <p className="text-sm tracking-[0.2em] uppercase text-cream/80 mb-4">Nakasero · Kampala · Since 2007</p>
             <h1 className="font-display text-4xl md:text-6xl lg:text-[6rem] leading-[1.1] max-w-4xl">
               A quiet place to stay, right in the middle of Kampala.
             </h1>
@@ -33,9 +32,6 @@ function Home() {
               >
                 Reserve your stay
               </a>
-              <Link to="/rooms" className="btn-ghost-light">
-                Explore the hotel
-              </Link>
             </div>
           </div>
         </div>
