@@ -163,7 +163,7 @@ function Home() {
               Considered stays, gently priced.
             </h2>
           </div>
-          <div className="mt-20 grid gap-10 md:grid-cols-3">
+          <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             {offers.map((o) => (
               <div
                 key={o.title}
@@ -306,6 +306,11 @@ const offers = [
     tag: "Stay 3, pay 2",
     title: "Long weekends in the garden",
     copy: "Three nights in a Heritage room with daily breakfast, a candlelit dinner for two, and a spa ritual.",
+  },
+  {
+    tag: "Friday Night",
+    title: "Live band under the stars",
+    copy: "Every Friday evening, enjoy live music from local Kampala bands in our garden courtyard — the perfect way to end your week.",
   },
   {
     tag: "Honeymoon",
