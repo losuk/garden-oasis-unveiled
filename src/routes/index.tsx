@@ -163,7 +163,7 @@ function Home() {
               Considered stays, gently priced.
             </h2>
           </div>
-          <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {offers.map((o) => (
               <div
                 key={o.title}
@@ -302,6 +302,11 @@ function Pillar({
 }
 
 const offers = [
+  {
+    tag: "June Offer",
+    title: "Unwind & recharge",
+    copy: "A relaxing stay designed around your comfort — $95 for BB Single Occupancy, $100 for Double Occupancy.",
+  },
   {
     tag: "Stay 3, pay 2",
     title: "Long weekends in the garden",
