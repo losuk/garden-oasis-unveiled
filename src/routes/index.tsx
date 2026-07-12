@@ -163,7 +163,7 @@ function Home() {
               Considered stays, gently priced.
             </h2>
           </div>
-          <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          <div className="mt-20 grid gap-10 md:grid-cols-3">
             {offers.map((o) => (
               <div
                 key={o.title}
@@ -308,11 +308,6 @@ const offers = [
     copy: "A relaxing stay designed around your comfort — $95 for BB Single Occupancy, $100 for Double Occupancy.",
   },
   {
-    tag: "Stay 3, pay 2",
-    title: "Long weekends in the garden",
-    copy: "Three nights in a Heritage room with daily breakfast, a candlelit dinner for two, and a spa ritual.",
-  },
-  {
     tag: "Daily · 3–8PM",
     title: "The Equatorial Sunset Happy Hour",
     copy: "Mon–Sun (except Friday) in the Lima & Lower Gardens — enjoy sunset combos and special pricing on house cocktails as the sun sets over Kampala.",
@@ -321,15 +316,5 @@ const offers = [
     tag: "Friday Night",
     title: "Live band under the stars",
     copy: "Every Friday evening, enjoy live music from local Kampala bands in our garden courtyard — the perfect way to end your week.",
-  },
-  {
-    tag: "Honeymoon",
-    title: "A private beginning",
-    copy: "Champagne on arrival, a couple's massage in the frangipani suite, and a farewell breakfast in your terrace.",
-  },
-  {
-    tag: "Extended stay",
-    title: "Fourteen days in Kampala",
-    copy: "A generous discount, laundry, driver, and full board — for those making Kampala home for a season.",
   },
 ];
