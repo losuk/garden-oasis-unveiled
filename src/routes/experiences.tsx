@@ -8,9 +8,16 @@ export const Route = createFileRoute("/experiences")({
   head: () => ({
     meta: [
       { title: "Experiences — The Emin Pasha Hotel & Spa" },
-      { name: "description", content: "Gorilla trekking in Bwindi, private safaris to Murchison Falls, and curated tours of Kampala." },
+      {
+        name: "description",
+        content:
+          "Gorilla trekking in Bwindi, private safaris to Murchison Falls, and curated tours of Kampala.",
+      },
       { property: "og:title", content: "Experiences — The Emin Pasha" },
-      { property: "og:description", content: "Curated journeys from The Emin Pasha — gorillas, safaris, and Kampala by heart." },
+      {
+        property: "og:description",
+        content: "Curated journeys from The Emin Pasha — gorillas, safaris, and Kampala by heart.",
+      },
     ],
   }),
   component: ExperiencesPage,
@@ -72,7 +79,10 @@ function ExperiencesPage() {
                 <p className="mt-6 text-base font-light leading-relaxed text-muted-foreground">
                   {e.copy}
                 </p>
-                <a href="mailto:concierge@eminpasha.com" className="mt-10 inline-block link-underline text-[11px] tracking-[0.28em] uppercase text-forest">
+                <a
+                  href="mailto:concierge@eminpasha.com"
+                  className="mt-10 inline-block link-underline text-[11px] tracking-[0.28em] uppercase text-forest"
+                >
                   Arrange with our concierge
                 </a>
               </div>

@@ -21,7 +21,9 @@ function NotFoundComponent() {
           The page you're looking for has drifted from the garden path.
         </p>
         <div className="mt-8">
-          <Link to="/" className="btn-primary">Return home</Link>
+          <Link to="/" className="btn-primary">
+            Return home
+          </Link>
         </div>
       </div>
     </div>
@@ -35,9 +37,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-3xl text-forest">
-          This page didn't load
-        </h1>
+        <h1 className="font-display text-3xl text-forest">This page didn't load</h1>
         <p className="mt-4 text-sm text-muted-foreground">
           Something went wrong. Please try again or return home.
         </p>
@@ -51,7 +51,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a href="/" className="btn-outline">Go home</a>
+          <a href="/" className="btn-outline">
+            Go home
+          </a>
         </div>
       </div>
     </div>

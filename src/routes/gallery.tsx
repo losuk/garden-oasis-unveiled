@@ -6,9 +6,16 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — The Emin Pasha Hotel & Spa" },
-      { name: "description", content: "A visual journey through the gardens, rooms, and quiet corners of The Emin Pasha." },
+      {
+        name: "description",
+        content:
+          "A visual journey through the gardens, rooms, and quiet corners of The Emin Pasha.",
+      },
       { property: "og:title", content: "Gallery — The Emin Pasha" },
-      { property: "og:description", content: "A visual journey through The Emin Pasha Hotel & Spa in Kampala." },
+      {
+        property: "og:description",
+        content: "A visual journey through The Emin Pasha Hotel & Spa in Kampala.",
+      },
     ],
   }),
   component: GalleryPage,
@@ -30,11 +37,7 @@ const images = [
 function GalleryPage() {
   return (
     <SiteLayout>
-      <PageHero
-        eyebrow="Gallery"
-        title="A place best felt in fragments."
-        image={garden}
-      />
+      <PageHero eyebrow="Gallery" title="A place best felt in fragments." image={garden} />
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 [&>*]:mb-6">

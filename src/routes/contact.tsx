@@ -6,7 +6,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — The Emin Pasha Hotel & Spa" },
-      { name: "description", content: "Reach our reservations team in Kampala — by phone, email, or in person on Akii Bua Road, Nakasero." },
+      {
+        name: "description",
+        content:
+          "Reach our reservations team in Kampala — by phone, email, or in person on Akii Bua Road, Nakasero.",
+      },
       { property: "og:title", content: "Contact — The Emin Pasha" },
       { property: "og:description", content: "Reach our reservations team in Kampala." },
     ],
@@ -17,11 +21,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <SiteLayout>
-      <PageHero
-        eyebrow="Contact"
-        title="We would be delighted to welcome you."
-        image={heritage}
-      />
+      <PageHero eyebrow="Contact" title="We would be delighted to welcome you." image={heritage} />
 
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid gap-16 md:grid-cols-2">
@@ -31,29 +31,47 @@ function ContactPage() {
               A private conversation, always.
             </h2>
             <p className="mt-6 text-base font-light leading-relaxed text-muted-foreground max-w-md">
-              Every stay at The Emin Pasha is arranged personally by our
-              reservations team. Please reach out — we'll respond within a
-              few hours.
+              Every stay at The Emin Pasha is arranged personally by our reservations team. Please
+              reach out — we'll respond within a few hours.
             </p>
 
             <div className="mt-12 space-y-8 text-sm">
               <div>
                 <p className="eyebrow">Address</p>
                 <p className="mt-3 font-light text-muted-foreground leading-relaxed">
-                  27 Akii Bua Road<br />
-                  Nakasero, Kampala<br />
+                  27 Akii Bua Road
+                  <br />
+                  Nakasero, Kampala
+                  <br />
                   Uganda
                 </p>
               </div>
               <div>
                 <p className="eyebrow">Telephone</p>
-                <a href="tel:+256414236977" className="mt-3 inline-block link-underline text-forest">
-                  +256 414 236 977
+                <a
+                  href="tel:+256312264712"
+                  className="mt-3 inline-block link-underline text-forest font-light"
+                >
+                  +256 312 264 712
+                </a>
+              </div>
+              <div>
+                <p className="eyebrow">WhatsApp</p>
+                <a
+                  href="https://wa.me/256764042543"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block link-underline text-forest font-light"
+                >
+                  +256 764 042 543
                 </a>
               </div>
               <div>
                 <p className="eyebrow">Email</p>
-                <a href="mailto:reservations@eminpasha.com" className="mt-3 inline-block link-underline text-forest">
+                <a
+                  href="mailto:reservations@eminpasha.com"
+                  className="mt-3 inline-block link-underline text-forest font-light"
+                >
                   reservations@eminpasha.com
                 </a>
               </div>
@@ -105,7 +123,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="eyebrow" htmlFor={name}>{label}</label>
+      <label className="eyebrow" htmlFor={name}>
+        {label}
+      </label>
       <input
         id={name}
         name={name}

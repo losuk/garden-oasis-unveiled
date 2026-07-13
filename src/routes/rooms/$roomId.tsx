@@ -25,9 +25,7 @@ function RoomPage() {
         <section className="py-32 md:py-48">
           <div className="mx-auto max-w-[1200px] px-6 lg:px-12 text-center">
             <p className="eyebrow">Not Found</p>
-            <h1 className="mt-6 font-display text-4xl md:text-6xl text-forest">
-              Room Not Found
-            </h1>
+            <h1 className="mt-6 font-display text-4xl md:text-6xl text-forest">Room Not Found</h1>
             <div className="mt-10">
               <Link to="/rooms" className="btn-primary">
                 Back to Rooms
@@ -41,12 +39,7 @@ function RoomPage() {
 
   return (
     <SiteLayout>
-      <PageHero
-        eyebrow="Rooms & Suites"
-        title={room.name}
-        intro={room.blurb}
-        image={room.img}
-      />
+      <PageHero eyebrow="Rooms & Suites" title={room.name} intro={room.blurb} image={room.img} />
 
       {/* Room Gallery */}
       <section className="py-24 md:py-32 bg-secondary/20">
@@ -153,7 +146,10 @@ function RoomPage() {
                 Explore our other accommodations
               </h2>
             </div>
-            <Link to="/rooms" className="link-underline text-forest text-[11px] tracking-[0.28em] uppercase">
+            <Link
+              to="/rooms"
+              className="link-underline text-forest text-[11px] tracking-[0.28em] uppercase"
+            >
               View all rooms
             </Link>
           </div>
@@ -163,11 +159,7 @@ function RoomPage() {
               .filter((r) => r.id !== room.id)
               .slice(0, 3)
               .map((r) => (
-                <Link
-                  key={r.id}
-                  to={`/rooms/${r.id}` as any}
-                  className="group"
-                >
+                <Link key={r.id} to={`/rooms/${r.id}` as any} className="group">
                   <div className="overflow-hidden">
                     <img
                       src={r.img}
@@ -178,9 +170,7 @@ function RoomPage() {
                   </div>
                   <div className="mt-8">
                     <p className="eyebrow">{r.price}</p>
-                    <h3 className="mt-3 font-display text-3xl md:text-4xl text-forest">
-                      {r.name}
-                    </h3>
+                    <h3 className="mt-3 font-display text-3xl md:text-4xl text-forest">{r.name}</h3>
                     <p className="mt-4 text-base font-light leading-relaxed text-muted-foreground max-w-md">
                       {r.blurb}
                     </p>
