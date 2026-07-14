@@ -12,10 +12,10 @@ const primaryNav = [
       { label: "Deluxe Room", to: "/rooms/deluxe-room" },
       { label: "Deluxe Suite", to: "/rooms/deluxe-suite" },
       { label: "Superior Suite", to: "/rooms/superior-suite" },
-      { label: "Two-Bedroom Apartment", to: "/rooms/two-bedroom-apartment" },
+      { label: "One Bedroom Apartment", to: "/rooms/one-bedroom-apartment" },
     ],
   },
-  { to: "/dining", label: "Dining", hasDropdown: false },
+  { to: "/dining/equatoria", label: "Dining", hasDropdown: false },
   {
     to: "/spa",
     label: "Spa & Wellness",
@@ -26,7 +26,7 @@ const primaryNav = [
     ],
   },
   { to: "/gallery", label: "Gallery", hasDropdown: false },
-  { to: "/offers", label: "Offers", hasDropdown: false },
+  // { to: "/offers", label: "Offers", hasDropdown: false },
   { to: "/about", label: "About", hasDropdown: false },
   { to: "/contact", label: "Contact", hasDropdown: false },
 ] as const;
@@ -128,14 +128,14 @@ export function Header() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-sm"
               style={{
-                background: "var(--primary)",
-                color: "var(--primary-foreground)",
+                background: "#d4a03c",
+                color: "#1a1a1a",
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.background = "#661818";
+                e.currentTarget.style.background = "#b8882e";
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.background = "var(--primary)";
+                e.currentTarget.style.background = "#d4a03c";
               }}
             >
               Book Now

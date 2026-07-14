@@ -145,7 +145,7 @@ function Home() {
                   href="https://theeminpashahotelandspa.ihotelier.com/book/dates-of-stay"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-primary/90 text-cream flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-semibold tracking-wide transition-all duration-300 group-hover:translate-y-0.5 group-active:translate-y-1"
+                  className="bg-[#d4a03c] hover:bg-[#b8882e] text-[#1a1a1a] flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-semibold tracking-wide transition-all duration-300 group-hover:translate-y-0.5 group-active:translate-y-1"
                 >
                   <span>Check availability</span>
                   <ChevronRight
@@ -239,7 +239,7 @@ function Home() {
                 href="https://theeminpashahotelandspa.ihotelier.com/book/dates-of-stay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-primary hover:bg-[var(--color-primary-hover)] text-cream flex items-center justify-center gap-2 px-6 py-3 font-semibold tracking-wide transition-all"
+                className="flex-1 bg-[#d4a03c] hover:bg-[#b8882e] text-[#1a1a1a] flex items-center justify-center gap-2 px-6 py-3 font-semibold tracking-wide transition-all"
               >
                 <span>Check availability</span>
               </a>
@@ -382,10 +382,10 @@ function Home() {
             />
             <FeaturedRoom
               img="/images/rooms/two-bedroom-apartment.jpg"
-              name="Two-Bedroom Apartment"
-              blurb="Perfect for families or groups, with two separate bedrooms and plenty of space."
+              name="One Bedroom Apartment"
+              blurb="Perfect for families or longer stays. Spacious layout with separate living and sleeping areas, overlooking the pool."
               price="$180 / night"
-              id="two-bedroom-apartment"
+              id="one-bedroom-apartment"
               offset
             />
           </div>
@@ -398,7 +398,7 @@ function Home() {
           eyebrow="Dining"
           title="Enjoy our delicious dining experience."
           copy="Savor wonderful meals in a beautiful setting."
-          cta={{ to: "/dining", label: "Explore dining" }}
+          cta={{ to: "/dining/equatoria", label: "Explore dining" }}
           img="/images/dining/dining-moment.jpg"
         />
         <Pillar
@@ -449,7 +449,7 @@ function Home() {
         </div>
       </section>
 
-      {/* OFFERS */}
+      {/* CURRENTLY SECTION - COMMENTED OUT
       <section id="book" className="py-20 md:py-28">
         <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12">
           <div className="mb-10 max-w-3xl">
@@ -463,7 +463,6 @@ function Home() {
           </div>
 
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] items-stretch">
-            {/* Featured Room Offer */}
             <div className="bg-forest text-cream p-8 md:p-16 flex flex-col justify-between min-h-[400px]">
               <div>
                 <p className="text-[11px] tracking-[0.3em] uppercase text-accent mb-6">
@@ -489,7 +488,6 @@ function Home() {
               </div>
             </div>
 
-            {/* Food & Drink Events Stack */}
             <div className="flex flex-col justify-center gap-8 lg:pl-8">
               <div className="group relative">
                 <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-3 gap-2">
@@ -526,6 +524,7 @@ function Home() {
           </div>
         </div>
       </section>
+      END CURRENTLY SECTION */}
 
       {/* GUEST REVIEWS */}
       <section id="guest-reviews" className="py-20 md:py-28">

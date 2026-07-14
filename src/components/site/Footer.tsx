@@ -66,7 +66,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/dining" className="link-underline">
+                <Link to="/dining/equatoria" className="link-underline">
                   Equatoria Restaurant
                 </Link>
               </li>

@@ -103,9 +103,9 @@ export const rooms = [
     ],
   },
   {
-    id: "two-bedroom-apartment",
+    id: "one-bedroom-apartment",
     img: "/images/rooms/two-bedroom-apartment.jpg",
-    name: "Two-Bedroom Apartment",
+    name: "One Bedroom Apartment",
     size: "73 m²",
     bedType: "King-size",
     view: "Pool view",

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
-import heritage from "@/assets/heritage.jpg";
+import garden from "@/assets/garden.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <SiteLayout>
-      <PageHero eyebrow="Contact" title="We would be delighted to welcome you." image={heritage} />
+      <PageHero title="We would be delighted to welcome you." image="/images/gallery/gallery-image1.jpg" />
 
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-12 grid gap-16 md:grid-cols-2">

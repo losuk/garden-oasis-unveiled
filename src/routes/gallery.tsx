@@ -92,17 +92,7 @@ function GalleryPage() {
                     img.tall ? "aspect-[3/4]" : "aspect-[4/3]"
                   }`}
                 />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(74,20,20,0.85)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4">
-                  <div className="flex justify-end">
-                    <Maximize2 size={20} className="text-[var(--cream)]" />
-                  </div>
-                  <p className="text-[var(--cream)] text-sm font-medium">{img.category}</p>
-                </div>
-                {/* Mobile always show label */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[rgba(74,20,20,0.6)] to-transparent p-4 opacity-60 md:hidden">
-                  <p className="text-[var(--cream)] text-sm font-medium">{img.category}</p>
-                </div>
+                {/* Hover overlay removed — images zoom on hover only */}
               </div>
             ))}
           </div>
