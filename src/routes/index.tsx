@@ -11,7 +11,7 @@ function Home() {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
-  const words = ['Pasha', 'stillness', 'garden', 'dusk', 'heritage', 'spice', 'retreat'];
+  const words = ["Pasha", "stillness", "garden", "dusk", "heritage", "spice", "retreat"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -40,17 +40,16 @@ function Home() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-[#2A211B]">
+      <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-foreground">
         <video
           src="https://eminpasha.com/wp-content/uploads/2026/06/WhatsApp-Video-2026-05-31-at-22.53.08-2.mp4"
-          alt="The Emin Pasha at dusk"
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(42,27,20,0.24)] via-[rgba(42,33,27,0.12)] to-[rgba(74,20,20,0.58)]" />
         <div className="relative z-10 flex h-full flex-col justify-between pb-8">
           <div className="mx-auto w-full max-w-[1600px] px-4 md:px-6 lg:px-12 mt-40 md:mt-48 text-cream text-center">
             <p className="text-[10px] md:text-xs tracking-[0.25em] uppercase mb-4 md:mb-6 opacity-80">
@@ -59,7 +58,7 @@ function Home() {
             <h1 className="font-display text-4xl md:text-6xl lg:text-[9rem] leading-[0.9] mb-4 md:mb-6">
               <span className="font-normal">EMIN</span>
               <span
-                className={`italic font-light ml-1 md:ml-2 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`italic font-light ml-1 md:ml-2 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}
               >
                 {words[currentWordIndex]}
               </span>
@@ -100,14 +99,16 @@ function Home() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={() => setAdults(Math.max(1, adults - 1))}
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all duration-200"
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all duration-200"
                     >
                       <ChevronLeft size={16} strokeWidth={1.5} />
                     </button>
-                    <span className="text-forest text-lg md:text-xl font-medium mx-2 md:mx-3">{adults}</span>
+                    <span className="text-forest text-lg md:text-xl font-medium mx-2 md:mx-3">
+                      {adults}
+                    </span>
                     <button
                       onClick={() => setAdults(adults + 1)}
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all duration-200"
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all duration-200"
                     >
                       <ChevronRight size={16} strokeWidth={1.5} />
                     </button>
@@ -123,14 +124,16 @@ function Home() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={() => setChildren(Math.max(0, children - 1))}
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all duration-200"
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all duration-200"
                     >
                       <ChevronLeft size={16} strokeWidth={1.5} />
                     </button>
-                    <span className="text-forest text-lg md:text-xl font-medium mx-2 md:mx-3">{children}</span>
+                    <span className="text-forest text-lg md:text-xl font-medium mx-2 md:mx-3">
+                      {children}
+                    </span>
                     <button
                       onClick={() => setChildren(children + 1)}
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all duration-200"
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all duration-200"
                     >
                       <ChevronRight size={16} strokeWidth={1.5} />
                     </button>
@@ -158,7 +161,7 @@ function Home() {
 
       {/* STICKY BOOKING BAR (when scrolled) */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 transform ${
+        className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 transform hidden md:block ${
           isSticky ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
         }`}
       >
@@ -195,14 +198,14 @@ function Home() {
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => setAdults(Math.max(1, adults - 1))}
-                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all"
+                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all"
                   >
                     <ChevronLeft size={14} strokeWidth={1.5} />
                   </button>
                   <span className="text-forest text-sm font-medium mx-2">{adults}</span>
                   <button
                     onClick={() => setAdults(adults + 1)}
-                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all"
+                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all"
                   >
                     <ChevronRight size={14} strokeWidth={1.5} />
                   </button>
@@ -217,14 +220,14 @@ function Home() {
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => setChildren(Math.max(0, children - 1))}
-                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all"
+                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all"
                   >
                     <ChevronLeft size={14} strokeWidth={1.5} />
                   </button>
                   <span className="text-forest text-sm font-medium mx-2">{children}</span>
                   <button
                     onClick={() => setChildren(children + 1)}
-                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-cream transition-all"
+                    className="w-7 h-7 rounded-full border border-forest/20 flex items-center justify-center text-forest hover:border-accent hover:bg-accent hover:text-cream transition-all"
                   >
                     <ChevronRight size={14} strokeWidth={1.5} />
                   </button>
@@ -236,7 +239,7 @@ function Home() {
                 href="https://theeminpashahotelandspa.ihotelier.com/book/dates-of-stay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-accent hover:bg-accent/90 text-cream flex items-center justify-center gap-2 px-6 py-3 font-semibold tracking-wide transition-all"
+                className="flex-1 bg-primary hover:bg-[var(--color-primary-hover)] text-cream flex items-center justify-center gap-2 px-6 py-3 font-semibold tracking-wide transition-all"
               >
                 <span>Check availability</span>
               </a>
@@ -463,7 +466,7 @@ function Home() {
             {/* Featured Room Offer */}
             <div className="bg-forest text-cream p-8 md:p-16 flex flex-col justify-between min-h-[400px]">
               <div>
-                <p className="text-[11px] tracking-[0.3em] uppercase text-gold-soft mb-6">
+                <p className="text-[11px] tracking-[0.3em] uppercase text-accent mb-6">
                   July Special
                 </p>
                 <h3 className="font-display text-3xl md:text-5xl leading-[1.1] text-cream max-w-md">
@@ -510,7 +513,9 @@ function Home() {
                   <h3 className="font-display text-2xl md:text-4xl text-forest">
                     Friday Night Live
                   </h3>
-                  <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-sage">Fridays</span>
+                  <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-sage">
+                    Fridays
+                  </span>
                 </div>
                 <p className="text-sm md:text-base font-light text-muted-foreground max-w-md leading-relaxed">
                   We clear out some space in the courtyard, bring in the bands, and pour the drinks.
@@ -549,7 +554,8 @@ function Home() {
               className="group relative bg-background border border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:border-accent/50"
             >
               <div className="text-3xl md:text-5xl font-display text-forest leading-none mb-2">
-                4.0 <span className="text-base md:text-lg text-muted-foreground font-normal">/5</span>
+                4.0{" "}
+                <span className="text-base md:text-lg text-muted-foreground font-normal">/5</span>
               </div>
               <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
                 TRIPADVISOR
@@ -604,7 +610,8 @@ function Home() {
               className="group relative bg-background border border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:border-accent/50"
             >
               <div className="text-3xl md:text-5xl font-display text-forest leading-none mb-2">
-                4.3 <span className="text-base md:text-lg text-muted-foreground font-normal">/5</span>
+                4.3{" "}
+                <span className="text-base md:text-lg text-muted-foreground font-normal">/5</span>
               </div>
               <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
                 GOOGLE REVIEWS
@@ -613,7 +620,11 @@ function Home() {
               {/* Star Rating */}
               <div className="flex items-center gap-1" aria-hidden="true">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-4 h-4 md:w-5 md:h-5" style={{ color: "var(--gold-soft)" }}>
+                  <div
+                    key={i}
+                    className="w-4 h-4 md:w-5 md:h-5"
+                    style={{ color: "var(--gold-soft)" }}
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
@@ -655,7 +666,8 @@ function Home() {
               className="group relative bg-background border border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:border-accent/50"
             >
               <div className="text-3xl md:text-5xl font-display text-forest leading-none mb-2">
-                8.3 <span className="text-base md:text-lg text-muted-foreground font-normal">/10</span>
+                8.3{" "}
+                <span className="text-base md:text-lg text-muted-foreground font-normal">/10</span>
               </div>
               <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
                 BOOKING.COM
@@ -757,12 +769,11 @@ function Home() {
               "/images/gallery/gallery-image8.jpg",
               "/images/gallery/gallery-image9.jpg",
             ].map((img, i) => (
-              <div key={i} className="flex-shrink-0 w-56 md:w-72 lg:w-96 h-48 md:h-64 lg:h-80 overflow-hidden">
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+              <div
+                key={i}
+                className="flex-shrink-0 w-56 md:w-72 lg:w-96 h-48 md:h-64 lg:h-80 overflow-hidden"
+              >
+                <img src={img} alt="" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -770,7 +781,7 @@ function Home() {
       </section>
 
       {/* Spacer for sticky booking bar */}
-      <div className="h-24"></div>
+      <div className="h-24 hidden md:block"></div>
     </SiteLayout>
   );
 }

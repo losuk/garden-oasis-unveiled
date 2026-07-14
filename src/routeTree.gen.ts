@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SpaRouteImport } from './routes/spa'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoomsRouteImport } from './routes/rooms'
+import { Route as PoolRouteImport } from './routes/pool'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as DiningRouteImport } from './routes/dining'
@@ -34,6 +35,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RoomsRoute = RoomsRouteImport.update({
   id: '/rooms',
   path: '/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolRoute = PoolRouteImport.update({
+  id: '/pool',
+  path: '/pool',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
+  '/pool': typeof PoolRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
+  '/pool': typeof PoolRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
+  '/pool': typeof PoolRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/dining'
     | '/experiences'
     | '/gallery'
+    | '/pool'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/dining'
     | '/experiences'
     | '/gallery'
+    | '/pool'
     | '/sitemap.xml'
     | '/spa'
     | '/rooms/$roomId'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/dining'
     | '/experiences'
     | '/gallery'
+    | '/pool'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   DiningRoute: typeof DiningRoute
   ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
+  PoolRoute: typeof PoolRoute
   RoomsRoute: typeof RoomsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpaRoute: typeof SpaRoute
@@ -190,6 +203,13 @@ declare module '@tanstack/react-router' {
       path: '/rooms'
       fullPath: '/rooms'
       preLoaderRoute: typeof RoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pool': {
+      id: '/pool'
+      path: '/pool'
+      fullPath: '/pool'
+      preLoaderRoute: typeof PoolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -270,6 +290,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiningRoute: DiningRoute,
   ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
+  PoolRoute: PoolRoute,
   RoomsRoute: RoomsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpaRoute: SpaRoute,
@@ -277,13 +298,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

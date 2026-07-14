@@ -33,6 +33,10 @@
   --color-cream: var(--cream);
   --color-forest: var(--forest);
   --color-sage: var(--sage);
+  --color-footer: var(--footer);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-primary-hover: var(--primary-hover);
+  --color-success: var(--success);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -47,11 +51,13 @@
   --background: #f1e4db; /* Warm Parchment */
   --foreground: #2a211b; /* Ink Charcoal */
 
-  --cream: #efe6da; /* Ivory */
+  --cream: #efe6da; /* Text on dark */
   --forest: #37473b; /* Garden Green */
-  --sage: #7a6f63; /* Warm Grey */
+  --footer: #2a1b14; /* Darkest footer */
+  --sage: #8c7b70; /* Muted text */
   --gold: #d4a03c; /* Mustard Textile */
-  --gold-soft: #c9974f; /* Ochre Stucco */
+  --gold-soft: #d4a03c; /* Small highlights only */
+  --text-on-dark: #efe6da;
 
   --card: #f8f0e8; /* Lighter Warm Parchment */
   --card-foreground: #2a211b; /* Ink Charcoal */
@@ -59,14 +65,16 @@
   --popover-foreground: #2a211b; /* Ink Charcoal */
 
   --primary: #4a1414; /* Oxblood */
+  --primary-hover: #661818; /* Oxblood hover */
   --primary-foreground: #efe6da; /* Ivory */
   --secondary: #e8d6c4; /* Lighter Warm Parchment */
   --secondary-foreground: #37473b; /* Garden Green */
   --muted: #e8d6c4; /* Lighter Warm Parchment */
-  --muted-foreground: #7a6f63; /* Warm Grey */
+  --muted-foreground: #8c7b70; /* Warm muted text */
   --accent: #b5623a; /* Terracotta Brick */
   --accent-foreground: #2a211b; /* Ink Charcoal */
-  --destructive: #c1552e; /* Rust Upholstery */
+  --success: #4b6a4f; /* Warm success */
+  --destructive: #8c2f1e; /* Warm error */
   --destructive-foreground: #efe6da; /* Ivory */
   --border: #dcc9b4; /* Border Hairline */
   --input: #dcc9b4; /* Border Hairline */
@@ -156,13 +164,14 @@
   text-transform: uppercase;
   font-weight: 500;
   color: var(--color-cream);
-  background: var(--color-forest);
-  border: 1px solid var(--color-forest);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   &:hover {
-    background: transparent;
-    color: var(--color-forest);
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-cream);
   }
 }
 
@@ -177,13 +186,13 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-forest);
+  color: var(--color-primary);
   background: transparent;
-  border: 1px solid var(--color-forest);
+  border: 1px solid var(--color-primary);
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   &:hover {
-    background: var(--color-forest);
+    background: var(--color-primary);
     color: var(--color-cream);
   }
 }
@@ -206,7 +215,7 @@
   cursor: pointer;
   &:hover {
     background: var(--color-cream);
-    color: var(--color-forest);
+    color: var(--color-primary);
     border-color: var(--color-cream);
   }
 }

@@ -30,10 +30,10 @@ export function PageHero({
         alt=""
         className="absolute inset-0 h-full w-full object-cover animate-kenburns"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(42,27,20,0.5)] via-[rgba(42,33,27,0.2)] to-[rgba(74,20,20,0.55)]" />
       <div className="relative z-10 flex h-full items-end pb-20">
         <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 text-cream animate-fade-up">
-          <p className="eyebrow text-gold-soft">{eyebrow}</p>
+          <p className="eyebrow text-accent">{eyebrow}</p>
           <h1 className="mt-5 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-4xl">
             {title}
           </h1>

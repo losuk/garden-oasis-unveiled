@@ -3,18 +3,24 @@ import { Instagram, Facebook, Twitter } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#2A1B14] text-cream">
+    <footer className="bg-[var(--color-footer)] text-cream">
       {/* Main footer content */}
       <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12 py-16 md:py-24">
         <div className="grid gap-10 md:gap-12 lg:grid-cols-5 lg:items-start">
           {/* Brand block */}
           <div className="lg:col-span-2">
-            <div className="font-display text-2xl md:text-3xl leading-tight">
-              The Emin Pasha
-              <span className="block text-xs md:text-sm font-sans tracking-[0.3em] uppercase mt-2 opacity-70">
-                Hotel &amp; Spa
-              </span>
+            <div className="mb-2">
+              <Link to="/" className="flex items-center">
+                <img
+                  src="/images/logo.webp"
+                  alt="The Emin Pasha"
+                  className="h-12 md:h-14 brightness-0 invert"
+                />
+              </Link>
             </div>
+            <span className="block text-xs md:text-sm font-sans tracking-[0.3em] uppercase opacity-70">
+              Hotel &amp; Spa
+            </span>
             <p className="mt-6 md:mt-8 max-w-sm text-sm leading-relaxed font-light opacity-90">
               A tranquil garden sanctuary hidden in the heart of Nakasero, Kampala — where colonial
               heritage meets refined, contemporary hospitality.
@@ -52,7 +58,7 @@ export function Footer() {
 
           {/* Explore */}
           <div>
-            <h4 className="eyebrow text-gold-soft">Explore</h4>
+            <h4 className="eyebrow text-accent">Explore</h4>
             <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
               <li>
                 <Link to="/rooms" className="link-underline">
@@ -70,12 +76,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/spa" className="link-underline">
+                <Link to="/pool" className="link-underline">
                   Swimming Pool
                 </Link>
               </li>
               <li>
-                <Link to="/conferences" className="link-underline">
+                <Link to="/contact" className="link-underline">
                   Conferences &amp; Events
                 </Link>
               </li>
@@ -89,7 +95,7 @@ export function Footer() {
 
           {/* About */}
           <div>
-            <h4 className="eyebrow text-gold-soft">About</h4>
+            <h4 className="eyebrow text-accent">About</h4>
             <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
               <li>
                 <Link to="/about" className="link-underline">
@@ -102,9 +108,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/offers" className="link-underline">
+                <a href="/#book" className="link-underline">
                   Offers
-                </Link>
+                </a>
               </li>
               <li>
                 <a href="#careers" className="link-underline">
@@ -121,7 +127,7 @@ export function Footer() {
 
           {/* Reservations */}
           <div>
-            <h4 className="eyebrow text-gold-soft">Reservations</h4>
+            <h4 className="eyebrow text-accent">Reservations</h4>
             <address className="mt-4 md:mt-6 not-italic text-sm leading-relaxed font-light opacity-90">
               27 Akii Bua Road
               <br />
@@ -152,7 +158,7 @@ export function Footer() {
 
       {/* Divider */}
       <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12">
-        <div className="w-full h-px bg-[#4A3529]" />
+        <div className="h-px w-full bg-[rgba(220,201,180,0.18)]" />
       </div>
 
       {/* Bottom bar */}
