@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 
+const galleryImages = [
+  "/images/dining/dining-moment.jpg",
+  "/images/dining/dining-moment4.jpg",
+  "/images/dining/dining-moment5.jpg",
+  "/images/dining/dining-moment6.jpg",
+  "/images/dining/dining-moment7.jpg",
+];
+
 export const Route = createFileRoute("/dining")({
   head: () => ({
     meta: [
@@ -62,7 +70,7 @@ function DiningPage() {
             </div>
             <div className="overflow-hidden">
               <img
-                src="/images/dining/dining-moment.jpg"
+                src="/images/dining/dining-moment4.jpg"
                 alt="Equatoria Restaurant interior"
                 className="w-full object-cover aspect-[4/3]"
               />
@@ -146,31 +154,25 @@ function DiningPage() {
         </div>
       </section>
 
-      {/* ATMOSPHERE */}
+      {/* Gallery Strip */}
       <section className="py-24 md:py-32 bg-secondary/20">
         <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
           <div className="mb-14 text-center">
-            <p className="eyebrow text-accent">ATMOSPHERE</p>
+            <p className="eyebrow text-accent">THE RESTAURANT</p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl text-forest leading-[1.05]">
-              Moments from the Veranda
+              Our space
             </h2>
           </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="overflow-hidden">
-              <img
-                src="/images/dining/dining-moment.jpg"
-                alt="Restaurant atmosphere 1"
-                className="w-full h-80 object-cover"
-              />
-            </div>
-            <div className="overflow-hidden">
-              <img
-                src="/images/dining/dining-moment.jpg"
-                alt="Restaurant atmosphere 2"
-                className="w-full h-80 object-cover"
-              />
-            </div>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+            {galleryImages.map((img, i) => (
+              <div key={i} className="overflow-hidden">
+                <img
+                  src={img}
+                  alt={`Restaurant space - ${i + 1}`}
+                  className="w-full aspect-square object-cover transition-transform duration-1000 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
-import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -21,36 +21,120 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-
-
-// Mock gallery data (replace with real data)
 const galleryImages = [
-  { src: "/images/gallery/gallery-image.jpg", category: "Rooms & Suites", tall: true },
-  { src: "/images/gallery/gallery-image1.jpg", category: "Lobby & Lounge" },
-  { src: "/images/gallery/gallery-image2.jpg", category: "Exterior & Gardens", tall: true },
-  { src: "/images/gallery/gallery-image3.jpg", category: "Exterior & Gardens" },
-  { src: "/images/gallery/gallery-image4.jpg", category: "Spa & Wellness", tall: true },
-  { src: "/images/gallery/gallery-image5.jpg", category: "Rooms & Suites" },
-  { src: "/images/gallery/gallery-image6.jpg", category: "Swimming Pool", tall: true },
-  { src: "/images/gallery/gallery-image7.jpg", category: "Lobby & Lounge" },
-  { src: "/images/gallery/gallery-image8.jpg", category: "Equatoria Restaurant", tall: true },
-  { src: "/images/gallery/gallery-image9.jpg", category: "Exterior & Gardens" },
+  // Exterior & Gardens
+  { id: 45, src: "/images/gallery/gallery-image1.jpg", category: "Exterior & Gardens" },
+  // Rooms & Suites
+  { id: 8, src: "/images/rooms/delux-room.jpg", category: "Rooms & Suites" },
+  { id: 9, src: "/images/rooms/delux-room1.jpg", category: "Rooms & Suites" },
+  { id: 10, src: "/images/rooms/delux-room2.jpg", category: "Rooms & Suites" },
+  { id: 11, src: "/images/rooms/delux-room3.jpg", category: "Rooms & Suites" },
+  { id: 12, src: "/images/rooms/delux-room4.jpg", category: "Rooms & Suites" },
+  { id: 13, src: "/images/rooms/delux-room5.jpg", category: "Rooms & Suites" },
+  { id: 14, src: "/images/rooms/delux-room6.jpg", category: "Rooms & Suites" },
+  { id: 15, src: "/images/rooms/delux-room7.jpg", category: "Rooms & Suites" },
+  { id: 16, src: "/images/rooms/delux-room8.jpg", category: "Rooms & Suites" },
+  { id: 17, src: "/images/rooms/delux-room9.jpg", category: "Rooms & Suites" },
+  { id: 18, src: "/images/rooms/delux-suite.jpg", category: "Rooms & Suites" },
+  { id: 19, src: "/images/rooms/delux-suite1.jpg", category: "Rooms & Suites" },
+  { id: 20, src: "/images/rooms/delux-suite2.jpg", category: "Rooms & Suites" },
+  { id: 21, src: "/images/rooms/delux-suite3.jpg", category: "Rooms & Suites" },
+  { id: 22, src: "/images/rooms/delux-suite4.jpg", category: "Rooms & Suites" },
+  { id: 23, src: "/images/rooms/delux-suite5.jpg", category: "Rooms & Suites" },
+  { id: 24, src: "/images/rooms/delux-suite6.jpg", category: "Rooms & Suites" },
+  { id: 25, src: "/images/rooms/delux-suite7.jpg", category: "Rooms & Suites" },
+  { id: 26, src: "/images/rooms/delux-suite8.jpg", category: "Rooms & Suites" },
+  { id: 27, src: "/images/rooms/delux-suite9.jpg", category: "Rooms & Suites" },
+  { id: 28, src: "/images/rooms/standard-room.jpg", category: "Rooms & Suites" },
+  { id: 29, src: "/images/rooms/standard-room2.jpg", category: "Rooms & Suites" },
+  { id: 30, src: "/images/rooms/standard-room3.jpg", category: "Rooms & Suites" },
+  { id: 31, src: "/images/rooms/standard-room4.jpg", category: "Rooms & Suites" },
+  { id: 32, src: "/images/rooms/standard-room5.jpg", category: "Rooms & Suites" },
+  { id: 33, src: "/images/rooms/standard-room6.jpg", category: "Rooms & Suites" },
+  { id: 34, src: "/images/rooms/two-bedroom-apartment.jpg", category: "Rooms & Suites" },
+  { id: 35, src: "/images/rooms/two-bedroom-apartment1.jpg", category: "Rooms & Suites" },
+  { id: 36, src: "/images/rooms/two-bedroom-apartment2.jpg", category: "Rooms & Suites" },
+  { id: 37, src: "/images/rooms/two-bedroom-apartment3.jpg", category: "Rooms & Suites" },
+  { id: 38, src: "/images/rooms/two-bedroom-apartment4.jpg", category: "Rooms & Suites" },
+  { id: 39, src: "/images/rooms/two-bedroom-apartment5.jpg", category: "Rooms & Suites" },
+  { id: 40, src: "/images/rooms/two-bedroom-apartment6.jpg", category: "Rooms & Suites" },
+  { id: 41, src: "/images/rooms/two-bedroom-apartment7.jpg", category: "Rooms & Suites" },
+  { id: 42, src: "/images/rooms/two-bedroom-apartment8.jpg", category: "Rooms & Suites" },
+  // Lobby & Lounge
+  { id: 46, src: "/images/gallery/gallery-image7.jpg", category: "Lobby & Lounge" },
+  { id: 53, src: "/images/gallery/gallery-image8.jpg", category: "Lobby & Lounge" },
+  { id: 61, src: "/images/gallery/gallery-image4.jpg", category: "Lobby & Lounge" },
+  { id: 69, src: "/images/gallery/gallery-image6.jpg", category: "Lobby & Lounge" },
+  { id: 43, src: "/images/gallery/gallery-image5.jpg", category: "Lobby & Lounge" },
+  { id: 3, src: "/images/gallery/gallery-image2.jpg", category: "Lobby & Lounge" },
+  { id: 4, src: "/images/gallery/gallery-image3.jpg", category: "Lobby & Lounge" },
+
+
+  // Equatoria Restaurant
+  { id: 48, src: "/images/dining/dining-moment.jpg", category: "Equatoria Restaurant" },
+  { id: 49, src: "/images/dining/dining-moment4.jpg", category: "Equatoria Restaurant" },
+  { id: 50, src: "/images/dining/dining-moment5.jpg", category: "Equatoria Restaurant" },
+  { id: 51, src: "/images/dining/dining-moment6.jpg", category: "Equatoria Restaurant" },
+  { id: 52, src: "/images/dining/dining-moment7.jpg", category: "Equatoria Restaurant" },
+  { id: 54, src: "/images/gallery/gallery-image13.jpg", category: "Equatoria Restaurant" },
+  { id: 44, src: "/images/gallery/gallery-image10.jpg", category: "Equatoria Restaurant" },
+  { id: 5, src: "/images/gallery/gallery-image9.jpg", category: "Equatoria Restaurant" },
+  { id: 6, src: "/images/gallery/gallery-image11.jpg", category: "Equatoria Restaurant" },
+  { id: 47, src: "/images/gallery/gallery-image12.jpg", category: "Equatoria Restaurant" },
+
+
+  // Spa & Wellness
+  { id: 55, src: "/images/spa/spa-moment.jpg", category: "Spa & Wellness" },
+  { id: 56, src: "/images/spa/spa-moment2.jpg", category: "Spa & Wellness" },
+  { id: 57, src: "/images/spa/spa-moment3.jpg", category: "Spa & Wellness" },
+  { id: 58, src: "/images/spa/spa-moment4.jpg", category: "Spa & Wellness" },
+  { id: 59, src: "/images/spa/spa-moment5.jpg", category: "Spa & Wellness" },
+  { id: 60, src: "/images/spa/spa-moment6.jpg", category: "Spa & Wellness" },
+  // Swimming Pool
+  { id: 63, src: "/images/swimming/swimming.jpg", category: "Swimming Pool" },
+  { id: 64, src: "/images/swimming/swimming-2.jpg", category: "Swimming Pool" },
+  { id: 65, src: "/images/swimming/swimming-3.jpg", category: "Swimming Pool" },
+  { id: 66, src: "/images/swimming/swimming-4.jpg", category: "Swimming Pool" },
+  { id: 67, src: "/images/swimming/swimming-5.jpg", category: "Swimming Pool" },
+  { id: 68, src: "/images/swimming/swimming-6.jpg", category: "Swimming Pool" },
+  { id: 2, src: "/images/gallery/gallery-image.jpg", category: "Swimming Pool" },
+  // Conferences & Events
+  { id: 70, src: "/images/conference/conference.jpg", category: "Conferences & Events" },
+  { id: 71, src: "/images/conference/conference-2.jpg", category: "Conferences & Events" },
+  { id: 72, src: "/images/conference/conference-3.jpg", category: "Conferences & Events" },
+  { id: 73, src: "/images/conference/conference-4.jpg", category: "Conferences & Events" },
+  { id: 7, src: "/images/rooms/conference-room.jpg", category: "Conferences & Events" },
+];
+
+const filterCategories = [
+  { label: "All Images", value: "all" },
+  { label: "Rooms", value: "Rooms & Suites" },
+  { label: "Lounge", value: "Lobby & Lounge" },
+  { label: "Dining", value: "Equatoria Restaurant" },
+  { label: "Spa", value: "Spa & Wellness" },
+  { label: "Pool", value: "Swimming Pool" },
+  { label: "Gardens", value: "Exterior & Gardens" },
 ];
 
 function GalleryPage() {
-  // State for lightbox
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentLightboxIndex, setCurrentLightboxIndex] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  // Handle lightbox navigation
+  const filteredImages =
+    activeFilter === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeFilter);
+
   const handleLightboxNext = () => {
-    setCurrentLightboxIndex(prev => (prev + 1) % galleryImages.length);
+    setCurrentLightboxIndex((prev) => (prev + 1) % filteredImages.length);
   };
   const handleLightboxPrev = () => {
-    setCurrentLightboxIndex(prev => (prev - 1 + galleryImages.length) % galleryImages.length);
+    setCurrentLightboxIndex(
+      (prev) => (prev - 1 + filteredImages.length) % filteredImages.length
+    );
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
@@ -60,27 +144,48 @@ function GalleryPage() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxOpen]);
+  }, [lightboxOpen, filteredImages.length]);
 
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="GALLERY"
-        title="A place best felt in fragments"
-        intro="Every corner of Emin Pasha, in one place."
-        image="/images/gallery/gallery-image3.jpg"
+        eyebrow="VISUAL JOURNEY"
+        title="Hotel Gallery"
+        intro="Capture the essence of Nakasero's colonial heritage, private wellness spa, and tropical grounds."
+        image="/images/gallery/gallery-image1.jpg"
       />
 
+      {/* Filter Buttons */}
+      <section className="py-6 bg-secondary/20">
+        <div className="mx-auto max-w-[1600px] px-4">
+          <div className="flex flex-wrap justify-center gap-3">
+            {filterCategories.map((filter) => (
+              <button
+                key={filter.value}
+                onClick={() => setActiveFilter(filter.value)}
+                className={`px-4 py-2 text-sm font-medium rounded transition-all duration-200 ${
+                  activeFilter === filter.value
+                    ? "bg-[#c85a31] text-white"
+                    : "bg-white text-[#2d2d2d] hover:bg-[#c85a31]/10"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Grid */}
-      <section className="py-6">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="columns-1 md:columns-2 lg:columns-4 gap-2 [&>*]:mb-2">
-            {galleryImages.map((img, idx) => (
+      <section className="py-8">
+        <div className="mx-auto max-w-[1600px] px-4">
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-2 [&>*]:mb-2">
+            {filteredImages.map((img, i) => (
               <div
-                key={idx}
+                key={img.id}
                 className="relative overflow-hidden break-inside-avoid cursor-pointer group"
                 onClick={() => {
-                  setCurrentLightboxIndex(idx);
+                  setCurrentLightboxIndex(i);
                   setLightboxOpen(true);
                 }}
               >
@@ -88,11 +193,8 @@ function GalleryPage() {
                   src={img.src}
                   alt={img.category}
                   loading="lazy"
-                  className={`w-full object-cover transition-transform duration-400 group-hover:scale-103 ${
-                    img.tall ? "aspect-[3/4]" : "aspect-[4/3]"
-                  }`}
+                  className="w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
-                {/* Hover overlay removed — images zoom on hover only */}
               </div>
             ))}
           </div>
@@ -117,9 +219,8 @@ function GalleryPage() {
       </section>
 
       {/* Lightbox */}
-      {lightboxOpen && galleryImages[currentLightboxIndex] && (
+      {lightboxOpen && filteredImages[currentLightboxIndex] && (
         <div className="fixed inset-0 z-[99999] bg-[rgba(42,27,20,0.96)] flex items-center justify-center">
-          {/* Close Button */}
           <button
             onClick={() => setLightboxOpen(false)}
             className="absolute top-6 right-6 text-[var(--cream)] p-2 z-10"
@@ -127,7 +228,6 @@ function GalleryPage() {
             <X size={28} />
           </button>
 
-          {/* Prev Button */}
           <button
             onClick={handleLightboxPrev}
             className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--cream)] p-2 z-10"
@@ -135,14 +235,12 @@ function GalleryPage() {
             <ChevronLeft size={32} />
           </button>
 
-          {/* Image */}
           <img
-            src={galleryImages[currentLightboxIndex].src}
-            alt={galleryImages[currentLightboxIndex].category}
+            src={filteredImages[currentLightboxIndex].src}
+            alt={filteredImages[currentLightboxIndex].category}
             className="max-h-[85vh] max-w-[90vw] object-contain"
           />
 
-          {/* Next Button */}
           <button
             onClick={handleLightboxNext}
             className="absolute right-6 top-1/2 -translate-y-1/2 text-[var(--cream)] p-2 z-10"
@@ -150,11 +248,12 @@ function GalleryPage() {
             <ChevronRight size={32} />
           </button>
 
-          {/* Bottom Info */}
           <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end text-[var(--cream)]">
-            <p className="text-sm">{galleryImages[currentLightboxIndex].category}</p>
             <p className="text-sm">
-              {currentLightboxIndex + 1} of {galleryImages.length}
+              {filteredImages[currentLightboxIndex].category}
+            </p>
+            <p className="text-sm">
+              {currentLightboxIndex + 1} of {filteredImages.length}
             </p>
           </div>
         </div>

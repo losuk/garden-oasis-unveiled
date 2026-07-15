@@ -1,6 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 
+const galleryImages = [
+  "/images/spa/spa-moment.jpg",
+  "/images/spa/spa-moment2.jpg",
+  "/images/spa/spa-moment3.jpg",
+  "/images/spa/spa-moment4.jpg",
+  "/images/spa/spa-moment5.jpg",
+  "/images/spa/spa-moment6.jpg",
+];
+
 export const Route = createFileRoute("/spa")({
   head: () => ({
     meta: [
@@ -56,7 +65,7 @@ function SpaPage() {
             </div>
             <div className="overflow-hidden">
               <img
-                src="/images/spa/spa-moment.jpg"
+                src="/images/spa/spa-moment2.jpg"
                 alt="The spa at Emin Pasha"
                 className="w-full object-cover aspect-[4/3]"
               />
@@ -71,16 +80,13 @@ function SpaPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="overflow-hidden">
               <img
-                src="/images/spa/spa-moment.jpg"
+                src="/images/spa/spa-moment3.jpg"
                 alt="Garden-side treatment room"
                 className="w-full object-cover aspect-[4/3]"
               />
             </div>
             <div>
               <p className="eyebrow">TREATMENT ROOMS</p>
-              <h2 className="mt-4 font-display text-4xl md:text-5xl text-forest leading-[1.05]">
-                Garden-Side Oasis
-              </h2>
               <p className="mt-8 text-lg font-light leading-relaxed text-muted-foreground">
                 Our purpose-built spa is centred on wellness, with four luxuriously appointed
                 treatment rooms, a relaxation lounge, and serene botanical gardens.
@@ -181,20 +187,30 @@ function SpaPage() {
         </div>
       </section>
 
-      {/* Notes & Policies */}
+      {/* Gallery Strip */}
       <section className="py-24 md:py-32">
-        <div className="mx-auto max-w-[1000px] px-6 lg:px-12">
-          <div className="border border-border rounded-xl p-8 bg-background">
-            <h3 className="font-display text-2xl text-forest mb-4">Notes and Policies</h3>
-            <p className="text-base font-light leading-relaxed text-muted-foreground">
-              We ask that you arrive 15 minutes early in order to have time to get comfortable and
-              change into your robe and slippers prior to your treatment. All spa experiences can
-              only be secured with a credit card guarantee (or cash deposit for walk-ins). Please
-              let us know of any allergies, injuries, or medical conditions at the time of booking.
-            </p>
+        <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
+          <div className="mb-14 text-center">
+            <p className="eyebrow text-accent">THE SPA</p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl text-forest leading-[1.05]">
+              Our sanctuary
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {galleryImages.map((img, i) => (
+              <div key={i} className="overflow-hidden">
+                <img
+                  src={img}
+                  alt={`Spa space - ${i + 1}`}
+                  className="w-full aspect-square object-cover transition-transform duration-1000 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+
 
       {/* Booking Section */}
       <section className="py-24 md:py-32 bg-[var(--color-forest)]">

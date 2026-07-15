@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 
+const galleryImages = [
+  "/images/conference/conference.jpg",
+  "/images/conference/conference-2.jpg",
+  "/images/conference/conference-3.jpg",
+  "/images/conference/conference-4.jpg",
+];
+
 export const Route = createFileRoute("/conferences")({
   head: () => ({
     meta: [
@@ -28,7 +35,7 @@ function ConferencesPage() {
         eyebrow="MEETINGS & CELEBRATIONS"
         title="Conferences & Events"
         intro="Inspirational spaces for meetings, private dining and celebrations."
-        image="/images/rooms/conference-room.jpg"
+        image="/images/conference/conference.jpg"
       />
 
       {/* HOST WITH DISTINCTION */}
@@ -54,7 +61,7 @@ function ConferencesPage() {
             </div>
             <div className="overflow-hidden">
               <img
-                src="/images/eminpasha.jpg"
+                src="/images/conference/conference-2.jpg"
                 alt="Emin Pasha building"
                 className="w-full object-cover aspect-[4/3]"
               />
@@ -63,8 +70,31 @@ function ConferencesPage() {
         </div>
       </section>
 
-      {/* ROOM CAPACITIES */}
+      {/* Gallery Strip */}
       <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
+          <div className="mb-14 text-center">
+            <p className="eyebrow text-accent">OUR SPACES</p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl text-forest leading-[1.05]">
+              See our venues
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {galleryImages.map((img, i) => (
+              <div key={i} className="overflow-hidden">
+                <img
+                  src={img}
+                  alt={`Conference space - ${i + 1}`}
+                  className="w-full aspect-square object-cover transition-transform duration-1000 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROOM CAPACITIES */}
+      {/* <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
           <div className="mb-14 text-center">
             <p className="eyebrow text-accent">VENUE SPECIFICATIONS</p>
@@ -76,7 +106,6 @@ function ConferencesPage() {
             </p>
           </div>
 
-          {/* Table */}
           <div className="overflow-x-auto mb-10">
             <table className="w-full border-collapse border border-border">
               <thead>
@@ -124,7 +153,6 @@ function ConferencesPage() {
             </table>
           </div>
 
-          {/* Included Services */}
           <div className="border border-border rounded-xl p-8 bg-background">
             <h3 className="font-display text-2xl text-forest mb-6">
               Included Technical & Event Services:
@@ -148,7 +176,7 @@ function ConferencesPage() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* REQUEST A PROPOSAL */}
       <section className="py-24 md:py-32 bg-secondary/20">
