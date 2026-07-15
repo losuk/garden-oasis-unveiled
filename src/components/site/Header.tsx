@@ -15,7 +15,7 @@ const primaryNav = [
       { label: "One Bedroom Apartment", to: "/rooms/one-bedroom-apartment" },
     ],
   },
-  { to: "/dining/equatoria", label: "Dining", hasDropdown: false },
+  { to: "/dining", label: "Dining", hasDropdown: false },
   {
     to: "/spa",
     label: "Spa & Wellness",
@@ -25,9 +25,9 @@ const primaryNav = [
       { label: "Swimming Pool", to: "/pool" },
     ],
   },
+  { to: "/conferences", label: "Conferences", hasDropdown: false },
   { to: "/gallery", label: "Gallery", hasDropdown: false },
   // { to: "/offers", label: "Offers", hasDropdown: false },
-  { to: "/about", label: "About", hasDropdown: false },
   { to: "/contact", label: "Contact", hasDropdown: false },
 ] as const;
 

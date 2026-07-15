@@ -62,17 +62,17 @@ export function Footer() {
             <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
               <li>
                 <Link to="/rooms" className="link-underline">
-                  Rooms &amp; Suites
+                  Rooms & Suites
                 </Link>
               </li>
               <li>
-                <Link to="/dining/equatoria" className="link-underline">
-                  Equatoria Restaurant
+                <Link to="/dining" className="link-underline">
+                  Dining
                 </Link>
               </li>
               <li>
                 <Link to="/spa" className="link-underline">
-                  Spa &amp; Wellness
+                  Spa & Wellness
                 </Link>
               </li>
               <li>
@@ -81,8 +81,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="link-underline">
-                  Conferences &amp; Events
+                <Link to="/conferences" className="link-underline">
+                  Conferences & Events
                 </Link>
               </li>
               <li>
@@ -93,15 +93,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* About */}
+          {/* Info */}
           <div>
-            <h4 className="eyebrow text-accent">About</h4>
+            <h4 className="eyebrow text-accent">Info</h4>
             <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
-              <li>
-                <Link to="/about" className="link-underline">
-                  About Us
-                </Link>
-              </li>
               <li>
                 <Link to="/contact" className="link-underline">
                   Contact

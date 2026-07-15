@@ -15,13 +15,12 @@ import { Route as RoomsRouteImport } from './routes/rooms'
 import { Route as PoolRouteImport } from './routes/pool'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as DiningRouteImport } from './routes/dining'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
+import { Route as ConferencesRouteImport } from './routes/conferences'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoomsIndexRouteImport } from './routes/rooms/index'
-import { Route as DiningIndexRouteImport } from './routes/dining.index'
 import { Route as RoomsRoomIdRouteImport } from './routes/rooms/$roomId'
-import { Route as DiningEquatoriaRouteImport } from './routes/dining.equatoria'
 
 const SpaRoute = SpaRouteImport.update({
   id: '/spa',
@@ -53,14 +52,19 @@ const ExperiencesRoute = ExperiencesRouteImport.update({
   path: '/experiences',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiningRoute = DiningRouteImport.update({
+  id: '/dining',
+  path: '/dining',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const ConferencesRoute = ConferencesRouteImport.update({
+  id: '/conferences',
+  path: '/conferences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,126 +77,109 @@ const RoomsIndexRoute = RoomsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => RoomsRoute,
 } as any)
-const DiningIndexRoute = DiningIndexRouteImport.update({
-  id: '/dining/',
-  path: '/dining/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RoomsRoomIdRoute = RoomsRoomIdRouteImport.update({
   id: '/$roomId',
   path: '/$roomId',
   getParentRoute: () => RoomsRoute,
 } as any)
-const DiningEquatoriaRoute = DiningEquatoriaRouteImport.update({
-  id: '/dining/equatoria',
-  path: '/dining/equatoria',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/conferences': typeof ConferencesRoute
   '/contact': typeof ContactRoute
+  '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
-  '/dining/equatoria': typeof DiningEquatoriaRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
-  '/dining/': typeof DiningIndexRoute
   '/rooms/': typeof RoomsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/conferences': typeof ConferencesRoute
   '/contact': typeof ContactRoute
+  '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
-  '/dining/equatoria': typeof DiningEquatoriaRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
-  '/dining': typeof DiningIndexRoute
   '/rooms': typeof RoomsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/conferences': typeof ConferencesRoute
   '/contact': typeof ContactRoute
+  '/dining': typeof DiningRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
-  '/dining/equatoria': typeof DiningEquatoriaRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
-  '/dining/': typeof DiningIndexRoute
   '/rooms/': typeof RoomsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
+    | '/conferences'
     | '/contact'
+    | '/dining'
     | '/experiences'
     | '/gallery'
     | '/pool'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
-    | '/dining/equatoria'
     | '/rooms/$roomId'
-    | '/dining/'
     | '/rooms/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
+    | '/conferences'
     | '/contact'
+    | '/dining'
     | '/experiences'
     | '/gallery'
     | '/pool'
     | '/sitemap.xml'
     | '/spa'
-    | '/dining/equatoria'
     | '/rooms/$roomId'
-    | '/dining'
     | '/rooms'
   id:
     | '__root__'
     | '/'
-    | '/about'
+    | '/conferences'
     | '/contact'
+    | '/dining'
     | '/experiences'
     | '/gallery'
     | '/pool'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
-    | '/dining/equatoria'
     | '/rooms/$roomId'
-    | '/dining/'
     | '/rooms/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  ConferencesRoute: typeof ConferencesRoute
   ContactRoute: typeof ContactRoute
+  DiningRoute: typeof DiningRoute
   ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
   PoolRoute: typeof PoolRoute
   RoomsRoute: typeof RoomsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpaRoute: typeof SpaRoute
-  DiningEquatoriaRoute: typeof DiningEquatoriaRoute
-  DiningIndexRoute: typeof DiningIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -239,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperiencesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dining': {
+      id: '/dining'
+      path: '/dining'
+      fullPath: '/dining'
+      preLoaderRoute: typeof DiningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -246,11 +240,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/conferences': {
+      id: '/conferences'
+      path: '/conferences'
+      fullPath: '/conferences'
+      preLoaderRoute: typeof ConferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -267,26 +261,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomsIndexRouteImport
       parentRoute: typeof RoomsRoute
     }
-    '/dining/': {
-      id: '/dining/'
-      path: '/dining'
-      fullPath: '/dining/'
-      preLoaderRoute: typeof DiningIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/rooms/$roomId': {
       id: '/rooms/$roomId'
       path: '/$roomId'
       fullPath: '/rooms/$roomId'
       preLoaderRoute: typeof RoomsRoomIdRouteImport
       parentRoute: typeof RoomsRoute
-    }
-    '/dining/equatoria': {
-      id: '/dining/equatoria'
-      path: '/dining/equatoria'
-      fullPath: '/dining/equatoria'
-      preLoaderRoute: typeof DiningEquatoriaRouteImport
-      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -305,16 +285,15 @@ const RoomsRouteWithChildren = RoomsRoute._addFileChildren(RoomsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  ConferencesRoute: ConferencesRoute,
   ContactRoute: ContactRoute,
+  DiningRoute: DiningRoute,
   ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
   PoolRoute: PoolRoute,
   RoomsRoute: RoomsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpaRoute: SpaRoute,
-  DiningEquatoriaRoute: DiningEquatoriaRoute,
-  DiningIndexRoute: DiningIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
