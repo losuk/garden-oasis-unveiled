@@ -6,10 +6,10 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — The Emin Pasha Hotel & Spa" },
+      { title: "Gallery — The Emin Pasha Hotel & Spa, Kampala" },
       {
         name: "description",
-        content: "Every corner of Emin Pasha, in one place.",
+        content: "Explore the beautiful gardens, luxury suites, and tranquil spaces of The Emin Pasha Hotel. The premier boutique hotel experience in Nakasero, Kampala.",
       },
       { property: "og:title", content: "Gallery — The Emin Pasha" },
       {

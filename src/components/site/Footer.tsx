@@ -124,7 +124,7 @@ export function Footer() {
           <div>
             <h4 className="eyebrow text-accent">Reservations</h4>
             <address className="mt-4 md:mt-6 not-italic text-sm leading-relaxed font-light opacity-90">
-              27 Akii Bua Road
+              Plot 27 Akii-Bua Road
               <br />
               Nakasero, Kampala
               <br />

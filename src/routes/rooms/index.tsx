@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
-import { rooms } from "../rooms";
+import { rooms, amenityIcons } from "../rooms";
 
 export const Route = createFileRoute("/rooms/")({
   head: () => ({
@@ -83,12 +83,16 @@ function RoomsPage() {
                   </p>
 
                   {r.amenities && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {r.amenities.map((amenity, idx) => (
-                        <span key={idx} className="px-3 py-1 border border-border rounded text-xs text-muted-foreground bg-[var(--color-parchment-200)]">
-                          {amenity}
-                        </span>
-                      ))}
+                    <div className="mt-6 flex flex-wrap gap-4">
+                      {r.amenities.map((amenity, idx) => {
+                        const Icon = amenityIcons[amenity as keyof typeof amenityIcons];
+                        return (
+                          <div key={idx} className="flex items-center gap-2 text-muted-foreground">
+                            {Icon && <Icon className="w-4 h-4" />}
+                            <span className="text-sm">{amenity}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
 
@@ -116,23 +120,6 @@ function RoomsPage() {
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 md:py-32 bg-[var(--color-parchment-200)]">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <h2 className="font-display text-3xl md:text-4xl text-forest mb-12">Good to know</h2>
-          <div className="grid md:grid-cols-2 gap-8 text-muted-foreground">
-            <div>
-              <p className="mb-4">Children of all ages are welcome. Children aged 13 and above are charged as adults.</p>
-              <p className="mb-4">Cribs and extra beds are available on request, subject to availability, and charged separately.</p>
-            </div>
-            <div>
-              <p className="mb-4">A valid photo ID and credit card are required at check-in.</p>
-              <p className="mb-4">Cancellation terms vary by rate plan — full details are shown before you confirm your booking.</p>
-              <p>Check-in / check-out times: [CONFIRM WITH HOTEL]</p>
-            </div>
           </div>
         </div>
       </section>

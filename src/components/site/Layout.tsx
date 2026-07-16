@@ -27,7 +27,7 @@ export function PageHero({
     <section className="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
       <img
         src={image}
-        alt=""
+        alt="Hero image of The Emin Pasha Hotel gardens and architecture"
         className="absolute inset-0 h-full w-full object-cover animate-kenburns"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(42,27,20,0.5)] via-[rgba(42,33,27,0.2)] to-[rgba(74,20,20,0.55)]" />

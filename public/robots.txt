@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://emin-pasha.vercel.app/sitemap.xml

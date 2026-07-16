@@ -13,11 +13,11 @@ const galleryImages = [
 export const Route = createFileRoute("/spa")({
   head: () => ({
     meta: [
-      { title: "Spa & Wellness — The Emin Pasha Hotel & Spa" },
+      { title: "Best Hotel with Spa in Kampala — The Emin Pasha Wellness" },
       {
         name: "description",
         content:
-          "Botanical treatments drawn from Ugandan tradition, in three sunlit suites bordered by fern gardens.",
+          "Rejuvenate at the best hotel spa in Kampala. Our Nakasero wellness retreat offers botanical treatments drawn from Ugandan tradition in sunlit suites bordered by fern gardens.",
       },
       { property: "og:title", content: "Spa & Wellness — The Emin Pasha" },
       {

@@ -1,13 +1,42 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
+import {
+  ThermometerSnowflake,
+  Wifi,
+  Tv,
+  Coffee,
+  Sofa,
+  Bath,
+  Refrigerator,
+  Utensils,
+  Notebook,
+} from "lucide-react";
 
 export const Route = createFileRoute("/rooms")({
   component: RoomsLayout,
+  head: () => ({
+    meta: [
+      { title: "Luxury Rooms & Suites — The Emin Pasha Hotel Kampala" },
+      { name: "description", content: "Stay in Nakasero's finest luxury boutique hotel. Explore our spacious suites and elegant rooms set amid lush gardens in the heart of Kampala." }
+    ]
+  })
 });
 
 function RoomsLayout() {
   return <Outlet />;
 }
+
+export const amenityIcons = {
+  "A/C": ThermometerSnowflake,
+  "Wi-Fi": Wifi,
+  TV: Tv,
+  Minibar: Refrigerator,
+  Desk: Notebook,
+  Bath: Bath,
+  "Coffee maker": Coffee,
+  "Sitting area": Sofa,
+  Kitchenette: Utensils,
+};
 
 export const rooms = [
   {
@@ -19,7 +48,7 @@ export const rooms = [
     view: "Garden view",
     maxOccupancy: 2,
     price: "$125 / night",
-    blurb: "A peaceful start to every morning. A cozy, quiet room with natural light and garden-facing windows.",
+    blurb: "Experience a peaceful start to every morning at The Emin Pasha Hotel. Our Standard Room offers a cozy, quiet sanctuary featuring natural light and stunning garden-facing windows. Nestled in the heart of Nakasero, Kampala, this room provides the perfect blend of boutique luxury and historic charm, ideal for both business travelers and leisure guests seeking a serene getaway.",
     amenities: ["A/C", "Wi-Fi", "TV", "Minibar", "Desk", "Bath"],
     gallery: [
       "/images/rooms/standard-room.jpg",
@@ -39,7 +68,7 @@ export const rooms = [
     view: "Courtyard view",
     maxOccupancy: 2,
     price: "$135 / night",
-    blurb: "A quiet retreat with courtyard access. Upgraded finishes and a peaceful outlook over the hotel's inner courtyard.",
+    blurb: "A quiet luxury retreat with exclusive courtyard access. The Deluxe Room features upgraded finishes and a peaceful outlook over the hotel's lush inner courtyard. Perfectly situated in Kampala's prestigious Nakasero district, guests can enjoy premium amenities, bespoke furnishings, and the tranquil ambiance that makes The Emin Pasha one of Uganda's best luxury boutique hotels.",
     amenities: ["A/C", "Wi-Fi", "TV", "Minibar", "Desk", "Bath", "Coffee maker"],
     gallery: [
       "/images/rooms/delux-room.jpg",
@@ -63,7 +92,7 @@ export const rooms = [
     view: "Panoramic view",
     maxOccupancy: 2,
     price: "$145 / night",
-    blurb: "Space to stretch out and unwind. A separate living area and panoramic views make this feel like a true home away from home.",
+    blurb: "Space to stretch out, unwind, and experience true luxury. Our Deluxe Suite boasts a separate living area and panoramic views of our tropical gardens, making it feel like a true home away from home. Designed for discerning travelers visiting Kampala, this spacious suite combines classic heritage architecture with modern sophistication, ensuring an unforgettable stay at The Emin Pasha Hotel.",
     amenities: ["A/C", "Wi-Fi", "TV", "Minibar", "Desk", "Bath", "Sitting area"],
     gallery: [
       "/images/rooms/delux-suite.jpg",
@@ -87,7 +116,7 @@ export const rooms = [
     view: "Garden view",
     maxOccupancy: 2,
     price: "$200 / night",
-    blurb: "Top-tier comfort with extra space. A generous suite with a dedicated sitting area and lush garden views.",
+    blurb: "Top-tier comfort with extraordinary space. The Superior Suite is our most generous offering, featuring a dedicated sitting area and unparalleled lush garden views. Impeccably styled to reflect Kampala's rich heritage, this suite provides a private oasis for VIPs, honeymooners, and guests looking for the ultimate luxury hotel experience in Nakasero.",
     amenities: ["A/C", "Wi-Fi", "TV", "Minibar", "Desk", "Bath", "Sitting area", "Coffee maker"],
     gallery: [
       "/images/rooms/delux-suite.jpg",
@@ -111,7 +140,7 @@ export const rooms = [
     view: "Pool view",
     maxOccupancy: 4,
     price: "$180 / night",
-    blurb: "Perfect for families or longer stays. Spacious layout with separate living and sleeping areas, overlooking the pool.",
+    blurb: "Perfect for families, diplomats, or longer extended stays in Kampala. This spacious one-bedroom apartment layout offers distinct living and sleeping areas, a convenient kitchenette, and beautiful views overlooking our sparkling pool. Enjoy the independence of an apartment combined with the full five-star services of The Emin Pasha Hotel & Spa.",
     amenities: ["A/C", "Wi-Fi", "TV", "Minibar", "Desk", "Bath", "Kitchenette"],
     gallery: [
       "/images/rooms/two-bedroom-apartment.jpg",

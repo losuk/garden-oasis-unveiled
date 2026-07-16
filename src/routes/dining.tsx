@@ -12,11 +12,11 @@ const galleryImages = [
 export const Route = createFileRoute("/dining")({
   head: () => ({
     meta: [
-      { title: "Dining — The Emin Pasha Hotel & Spa" },
+      { title: "Fine Dining & Restaurants — The Emin Pasha Hotel Kampala" },
       {
         name: "description",
         content:
-          "Delicious dining experiences in a beautiful garden setting in Kampala.",
+          "Experience Kampala's finest culinary delights. Savor world-class dining in our tranquil garden restaurant and exclusive wine bar at The Emin Pasha Hotel in Nakasero.",
       },
       { property: "og:title", content: "Dining — The Emin Pasha" },
       {

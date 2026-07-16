@@ -5,11 +5,11 @@ import garden from "@/assets/garden.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — The Emin Pasha Hotel & Spa" },
+      { title: "Contact Us — The Emin Pasha Hotel, Kampala" },
       {
         name: "description",
         content:
-          "Reach our reservations team in Kampala — by phone, email, or in person on Akii Bua Road, Nakasero.",
+          "Reach our reservations team in Kampala. Book your stay at The Emin Pasha luxury boutique hotel on Akii Bua Road, Nakasero. Call us or email today.",
       },
       { property: "og:title", content: "Contact — The Emin Pasha" },
       { property: "og:description", content: "Reach our reservations team in Kampala." },
@@ -39,7 +39,7 @@ function ContactPage() {
               <div>
                 <p className="eyebrow">Address</p>
                 <p className="mt-3 font-light text-muted-foreground leading-relaxed">
-                  27 Akii Bua Road
+                  Plot 27 Akii-Bua Road
                   <br />
                   Nakasero, Kampala
                   <br />
@@ -105,6 +105,20 @@ function ContactPage() {
             </button>
           </form>
         </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="w-full h-96 md:h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.756285856942!2d32.57608431525048!3d0.3184693997705481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc80fa0f5dbf%3A0x6a1a7f0e6e76878f!2sEmin%20Pasha%20Hotel!5e0!3m2!1sen!2sug!4v1689255269785!5m2!1sen!2sug"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Google Maps Location for The Emin Pasha Hotel Kampala"
+        ></iframe>
       </section>
     </SiteLayout>
   );

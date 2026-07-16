@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
-import { rooms } from "../rooms";
+import { rooms, amenityIcons } from "../rooms";
 
 export const Route = createFileRoute("/rooms/$roomId")({
   head: ({ params }) => {
@@ -47,18 +47,6 @@ function RoomPage() {
   return (
     <SiteLayout>
       <PageHero eyebrow="Rooms & Suites" title={room.name} intro={room.blurb} image={room.img} />
-      {/* Breadcrumb */}
-      <section className="bg-[var(--color-parchment-100)] py-3">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-[var(--color-terracotta-500)] transition-colors">Home</Link>
-            <span>/</span>
-            <Link to="/rooms" className="hover:text-[var(--color-terracotta-500)] transition-colors">Rooms & Suites</Link>
-            <span>/</span>
-            <span className="text-foreground">{room.name}</span>
-          </nav>
-        </div>
-      </section>
 
       {/* Image Gallery */}
       <section className="py-8 md:py-12">
@@ -150,29 +138,15 @@ function RoomPage() {
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <h3 className="font-display text-3xl md:text-4xl text-forest mb-8">In this room</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {room.amenities?.map((amenity, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-[var(--color-gold-soft)] rounded-full" />
-                <span className="text-foreground">{amenity}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Room Policies */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <h3 className="font-display text-3xl md:text-4xl text-forest mb-8">Good to know</h3>
-          <div className="grid md:grid-cols-2 gap-6 text-muted-foreground">
-            <div>
-              {room.maxOccupancy && <p className="mb-4">Max occupancy: {room.maxOccupancy}</p>}
-              <p className="mb-4">Extra bed/crib: available on request, subject to availability, charged separately</p>
-              <p className="mb-4">Children 13+ charged as adults</p>
-            </div>
-            <div>
-              <p>Non-smoking room</p>
-            </div>
+            {room.amenities?.map((amenity, idx) => {
+              const Icon = amenityIcons[amenity as keyof typeof amenityIcons];
+              return (
+                <div key={idx} className="flex items-center gap-3">
+                  {Icon && <Icon className="w-5 h-5 text-forest" />}
+                  <span className="text-foreground">{amenity}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

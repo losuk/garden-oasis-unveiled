@@ -5,6 +5,12 @@ import { ChevronLeft, ChevronRight, Calendar, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Home,
+  head: () => ({
+    meta: [
+      { title: "The Emin Pasha Hotel — Luxury Boutique Hotel in Kampala, Nakasero" },
+      { name: "description", content: "Experience Kampala's premier luxury boutique hotel. The Emin Pasha Hotel offers a tranquil garden sanctuary, world-class spa, and exquisite dining in Nakasero." }
+    ]
+  })
 });
 
 function Home() {
@@ -320,7 +326,7 @@ function Home() {
               <div key={i} className={`overflow-hidden ${i % 2 === 0 ? "md:mt-10" : ""}`}>
                 <img
                   src={img}
-                  alt=""
+                  alt="Aerial view of The Emin Pasha Hotel gardens and architecture in Kampala"
                   loading="lazy"
                   className="h-[180px] md:h-[360px] w-full object-cover transition-transform duration-1000 hover:scale-105"
                 />
@@ -381,7 +387,7 @@ function Home() {
                 key={i}
                 className="flex-shrink-0 w-56 md:w-72 lg:w-96 h-48 md:h-64 lg:h-80 overflow-hidden"
               >
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                <img src={img} alt={`Gallery view of The Emin Pasha Hotel ${i + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -454,7 +460,7 @@ function Pillar({
   return (
     <div className="grid md:grid-cols-2 items-stretch">
       <div className={`${reverse ? "md:order-2" : ""} relative overflow-hidden`}>
-        <img src={img} alt="" loading="lazy" className="h-[60vh] md:h-[85vh] w-full object-cover" />
+        <img src={img} alt={`The Emin Pasha Hotel - ${title}`} loading="lazy" className="h-[60vh] md:h-[85vh] w-full object-cover" />
       </div>
       <div className="flex items-center bg-background px-6 md:px-20 py-16 md:py-0">
         <div className="max-w-md">

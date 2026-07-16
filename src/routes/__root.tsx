@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
+import { SchemaMarkup, hotelSchema } from "../components/seo/SchemaMarkup";
 
 import appCss from "../styles.css?url";
 
@@ -107,6 +108,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <SchemaMarkup schema={hotelSchema} />
       </head>
       <body>
         {children}
