@@ -62,41 +62,53 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Emin Pasha Hotel & Spa — A Garden Sanctuary in Kampala" },
-      {
-        name: "description",
-        content:
-          "A tranquil, historic boutique hotel in the heart of Nakasero, Kampala. Lush gardens, refined suites, world-class dining and spa — personalized luxury.",
-      },
-      { name: "author", content: "The Emin Pasha Hotel & Spa" },
-      { property: "og:title", content: "The Emin Pasha Hotel & Spa" },
-      {
-        property: "og:description",
-        content:
-          "A tranquil garden hideaway in Nakasero, Kampala — boutique luxury with heritage character.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=300;400;500&family=Inter:wght=300;400;500;600&display=swap",
-      },
-    ],
-  }),
+  head: () => {
+    const BASE_URL = "https://emin-pasha.vercel.app";
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "The Emin Pasha Hotel & Spa — A Garden Sanctuary in Kampala" },
+        {
+          name: "description",
+          content:
+            "A tranquil, historic boutique hotel in the heart of Nakasero, Kampala. Lush gardens, refined suites, world-class dining and spa — personalized luxury.",
+        },
+        { name: "author", content: "The Emin Pasha Hotel & Spa" },
+        { property: "og:title", content: "The Emin Pasha Hotel & Spa" },
+        {
+          property: "og:description",
+          content:
+            "A tranquil garden hideaway in Nakasero, Kampala — boutique luxury with heritage character.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: BASE_URL },
+        { property: "og:image", content: `${BASE_URL}/images/hero.png` },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "The Emin Pasha Hotel & Spa" },
+        {
+          name: "twitter:description",
+          content:
+            "A tranquil garden hideaway in Nakasero, Kampala — boutique luxury with heritage character.",
+        },
+        { name: "twitter:image", content: `${BASE_URL}/images/hero.png` },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossOrigin: "anonymous",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap",
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

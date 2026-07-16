@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type {} from "@tanstack/react-start";
+import { rooms } from "./rooms";
 
 const BASE_URL = "https://emin-pasha.vercel.app";
 
@@ -16,13 +16,19 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/rooms", changefreq: "weekly", priority: "0.9" },
-          { path: "/about", changefreq: "monthly", priority: "0.7" },
           { path: "/dining", changefreq: "monthly", priority: "0.8" },
           { path: "/spa", changefreq: "monthly", priority: "0.8" },
+          { path: "/pool", changefreq: "monthly", priority: "0.8" },
+          { path: "/conferences", changefreq: "monthly", priority: "0.8" },
           { path: "/gallery", changefreq: "monthly", priority: "0.6" },
-          { path: "/experiences", changefreq: "monthly", priority: "0.8" },
+          { path: "/offers", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.6" },
-          { path: "/blog", changefreq: "weekly", priority: "0.7" },
+          // Add individual room pages
+          ...rooms.map((room) => ({
+            path: `/rooms/${room.id}`,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
         ];
 
         const urls = entries

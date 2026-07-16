@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
+import { SchemaMarkup, spaSchema } from "../components/seo/SchemaMarkup";
+
+const BASE_URL = "https://emin-pasha.vercel.app";
 
 const galleryImages = [
   "/images/spa/spa-moment.jpg",
@@ -19,11 +22,20 @@ export const Route = createFileRoute("/spa")({
         content:
           "Rejuvenate at the best hotel spa in Kampala. Our Nakasero wellness retreat offers botanical treatments drawn from Ugandan tradition in sunlit suites bordered by fern gardens.",
       },
-      { property: "og:title", content: "Spa & Wellness — The Emin Pasha" },
+      { property: "og:title", content: "Spa & Wellness — The Emin Pasha Hotel & Spa" },
       {
         property: "og:description",
         content: "Botanical spa treatments in a garden sanctuary in Kampala.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: `${BASE_URL}/spa` },
+      { property: "og:image", content: `${BASE_URL}/images/spa/spa-moment.jpg` },
+      { name: "twitter:title", content: "Spa & Wellness — The Emin Pasha Hotel & Spa" },
+      {
+        name: "twitter:description",
+        content: "Botanical spa treatments in a garden sanctuary in Kampala.",
+      },
+      { name: "twitter:image", content: `${BASE_URL}/images/spa/spa-moment.jpg` },
     ],
   }),
   component: SpaPage,
@@ -32,6 +44,7 @@ export const Route = createFileRoute("/spa")({
 function SpaPage() {
   return (
     <SiteLayout>
+      <SchemaMarkup schema={spaSchema} />
       {/* Hero */}
       <PageHero
         eyebrow="SPA & WELLNESS"

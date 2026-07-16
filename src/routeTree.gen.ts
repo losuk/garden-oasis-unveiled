@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SpaRouteImport } from './routes/spa'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoomsRouteImport } from './routes/rooms'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as PoolRouteImport } from './routes/pool'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
@@ -37,6 +38,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RoomsRoute = RoomsRouteImport.update({
   id: '/rooms',
   path: '/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PoolRoute = PoolRouteImport.update({
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/pool': typeof PoolRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spa': typeof SpaRoute
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/experiences'
     | '/gallery'
     | '/pool'
+    | '/robots.txt'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/experiences'
     | '/gallery'
     | '/pool'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/spa'
     | '/rooms/$roomId'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/experiences'
     | '/gallery'
     | '/pool'
+    | '/robots.txt'
     | '/rooms'
     | '/sitemap.xml'
     | '/spa'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
   PoolRoute: typeof PoolRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   RoomsRoute: typeof RoomsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpaRoute: typeof SpaRoute
@@ -229,6 +242,13 @@ declare module '@tanstack/react-router' {
       path: '/rooms'
       fullPath: '/rooms'
       preLoaderRoute: typeof RoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pool': {
@@ -332,6 +352,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
   PoolRoute: PoolRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   RoomsRoute: RoomsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpaRoute: SpaRoute,

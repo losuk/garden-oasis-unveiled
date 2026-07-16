@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
+import { SchemaMarkup, restaurantSchema } from "../components/seo/SchemaMarkup";
+
+const BASE_URL = "https://emin-pasha.vercel.app";
 
 const galleryImages = [
   "/images/dining/dining-moment.jpg",
@@ -18,11 +21,20 @@ export const Route = createFileRoute("/dining")({
         content:
           "Experience Kampala's finest culinary delights. Savor world-class dining in our tranquil garden restaurant and exclusive wine bar at The Emin Pasha Hotel in Nakasero.",
       },
-      { property: "og:title", content: "Dining — The Emin Pasha" },
+      { property: "og:title", content: "Dining — The Emin Pasha Hotel & Spa" },
       {
         property: "og:description",
         content: "Dining experiences in Kampala's garden sanctuary.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: `${BASE_URL}/dining` },
+      { property: "og:image", content: `${BASE_URL}/images/dining/dining-moment.jpg` },
+      { name: "twitter:title", content: "Dining — The Emin Pasha Hotel & Spa" },
+      {
+        name: "twitter:description",
+        content: "Dining experiences in Kampala's garden sanctuary.",
+      },
+      { name: "twitter:image", content: `${BASE_URL}/images/dining/dining-moment.jpg` },
     ],
   }),
   component: DiningPage,
@@ -31,6 +43,7 @@ export const Route = createFileRoute("/dining")({
 function DiningPage() {
   return (
     <SiteLayout>
+      <SchemaMarkup schema={restaurantSchema} />
       {/* Hero */}
       <PageHero
         eyebrow="CULINARY JOURNEY"
