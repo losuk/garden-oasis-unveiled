@@ -1,93 +1,122 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook, Twitter, Sparkles } from "lucide-react";
+
+function BrandMark() {
+  return (
+    <svg width="80" height="80" viewBox="0 0 80 80" className="text-[#1a1a1a]">
+      <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      <text x="40" y="52" textAnchor="middle" fontSize="42" fontWeight="700" fontFamily="serif" fill="currentColor">E</text>
+      <Sparkles x="58" y="22" size="14" fill="currentColor" />
+      <Sparkles x="58" y="58" size="10" fill="currentColor" />
+    </svg>
+  );
+}
+
+function DistortedWordmark() {
+  const letters = [
+    { char: "E", rotate: -3, skewX: 5, translateY: 0 },
+    { char: "M", rotate: 2, skewX: -4, translateY: 4 },
+    { char: "I", rotate: -1, skewX: 3, translateY: -2 },
+    { char: "N", rotate: 3, skewX: -2, translateY: 2 },
+    { char: "P", rotate: -2, skewX: 4, translateY: -3 },
+    { char: "A", rotate: 4, skewX: -3, translateY: 3 },
+    { char: "S", rotate: -4, skewX: 2, translateY: -1 },
+    { char: "H", rotate: 1, skewX: -5, translateY: 2 },
+    { char: "A", rotate: 3, skewX: 3, translateY: -2 },
+  ];
+
+  return (
+    <div className="relative select-none">
+      <div className="flex items-end overflow-hidden">
+        {letters.slice(0, 4).map((letter, i) => (
+          <span
+            key={i}
+            className="font-black tracking-tighter"
+            style={{
+              display: "inline-block",
+              transform: `rotate(${letter.rotate}deg) skewX(${letter.skewX}deg) translateY(${letter.translateY}px)`,
+              fontSize: "clamp(4rem, 15vw, 12rem)",
+              lineHeight: "0.85",
+              color: "#F2EEE3",
+            }}
+          >
+            {letter.char}
+          </span>
+        ))}
+      </div>
+      <div className="flex items-end overflow-hidden -mt-4">
+        {letters.slice(4).map((letter, i) => (
+          <span
+            key={i}
+            className="font-black tracking-tighter"
+            style={{
+              display: "inline-block",
+              transform: `rotate(${letter.rotate}deg) skewX(${letter.skewX}deg) translateY(${letter.translateY}px)`,
+              fontSize: "clamp(4rem, 15vw, 12rem)",
+              lineHeight: "0.85",
+              color: "#F2EEE3",
+            }}
+          >
+            {letter.char}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-footer)] text-cream">
-      {/* Main footer content */}
-      <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12 py-16 md:py-24">
-        <div className="grid gap-10 md:gap-12 lg:grid-cols-5 lg:items-start">
-          {/* Brand block */}
-          <div className="lg:col-span-2">
-            <div className="mb-2">
-              <Link to="/" className="flex items-center">
-                <img
-                  src="/images/logo.webp"
-                  alt="The Emin Pasha"
-                  className="h-12 md:h-14 brightness-0 invert"
-                />
-              </Link>
-            </div>
-            <span className="block text-xs md:text-sm font-sans tracking-[0.3em] uppercase opacity-70">
-              Hotel &amp; Spa
-            </span>
-            <p className="mt-6 md:mt-8 max-w-sm text-sm leading-relaxed font-light opacity-90">
-              A tranquil garden sanctuary hidden in the heart of Nakasero, Kampala — where colonial
-              heritage meets refined, contemporary hospitality.
-            </p>
-            <div className="mt-6 md:mt-8 flex gap-4">
-              <a
-                href="https://instagram.com/eminpashahotelandspa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-cream/30 flex items-center justify-center transition-all hover:bg-accent hover:border-accent"
-                aria-label="Instagram"
-              >
-                <Instagram size={16} />
-              </a>
-              <a
-                href="https://facebook.com/eminpashahotelandspa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-cream/30 flex items-center justify-center transition-all hover:bg-accent hover:border-accent"
-                aria-label="Facebook"
-              >
-                <Facebook size={16} />
-              </a>
-              <a
-                href="https://x.com/theeminpasha"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-cream/30 flex items-center justify-center transition-all hover:bg-accent hover:border-accent"
-                aria-label="X (Twitter)"
-              >
-                <Twitter size={16} />
-              </a>
-            </div>
-          </div>
+    <footer className="bg-[#efe6da] text-[#1a1a1a] border-t border-[rgba(0,0,0,0.08)]">
+      <div className="relative border-l border-r border-[rgba(0,0,0,0.08)] mx-auto max-w-[1600px] px-6 lg:px-12 py-16 lg:py-20">
+        {/* Top-right brand mark */}
+        <div className="absolute top-8 right-6 lg:right-12">
+          <BrandMark />
+        </div>
 
+        {/* Hero logo */}
+        <div className="mb-16 lg:mb-20 flex justify-center">
+          <img
+            src="/images/logo.webp"
+            alt="The Emin Pasha"
+            className="h-32 md:h-40 lg:h-48"
+          />
+        </div>
+
+        {/* Link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {/* Explore */}
           <div>
-            <h4 className="eyebrow text-accent">Explore</h4>
-            <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
+            <h4 className="font-bold uppercase text-[#1a1a1a] text-base mb-4">EXPLORE</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/rooms" className="link-underline">
-                  Rooms & Suites
+                <Link to="/rooms" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  ROOMS & SUITES
                 </Link>
               </li>
               <li>
-                <Link to="/dining" className="link-underline">
-                  Dining
+                <Link to="/dining" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  DINING
                 </Link>
               </li>
               <li>
-                <Link to="/spa" className="link-underline">
-                  Spa & Wellness
+                <Link to="/spa" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  SPA & WELLNESS
                 </Link>
               </li>
               <li>
-                <Link to="/pool" className="link-underline">
-                  Swimming Pool
+                <Link to="/pool" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  SWIMMING POOL
                 </Link>
               </li>
               <li>
-                <Link to="/conferences" className="link-underline">
-                  Conferences & Events
+                <Link to="/conferences" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  CONFERENCES & EVENTS
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="link-underline">
-                  Gallery
+                <Link to="/gallery" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  GALLERY
                 </Link>
               </li>
             </ul>
@@ -95,82 +124,107 @@ export function Footer() {
 
           {/* Info */}
           <div>
-            <h4 className="eyebrow text-accent">Info</h4>
-            <ul className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
+            <h4 className="font-bold uppercase text-[#1a1a1a] text-base mb-4">INFO</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/contact" className="link-underline">
-                  Contact
+                <Link to="/contact" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  CONTACT
                 </Link>
               </li>
               <li>
-                <a href="/#book" className="link-underline">
-                  Offers
+                <Link to="/offers" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  OFFERS
+                </Link>
+              </li>
+              <li>
+                <a href="#careers" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  CAREERS
                 </a>
               </li>
               <li>
-                <a href="#careers" className="link-underline">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#faqs" className="link-underline">
-                  FAQs
+                <a href="#faqs" className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                  FAQS
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Reservations */}
+          {/* Socials */}
           <div>
-            <h4 className="eyebrow text-accent">Reservations</h4>
-            <address className="mt-4 md:mt-6 not-italic text-sm leading-relaxed font-light opacity-90">
-              Plot 27 Akii-Bua Road
-              <br />
-              Nakasero, Kampala
-              <br />
-              Uganda
-            </address>
-            <div className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm font-light opacity-90">
-              <a href="tel:+256312264712" className="block link-underline w-fit">
+            <h4 className="font-bold uppercase text-[#1a1a1a] text-base mb-4">SOCIALS</h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://instagram.com/eminpashahotelandspa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors flex items-center gap-2"
+                >
+                  <Instagram size={16} />
+                  INSTAGRAM
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com/eminpashahotelandspa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors flex items-center gap-2"
+                >
+                  <Facebook size={16} />
+                  FACEBOOK
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/theeminpasha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors flex items-center gap-2"
+                >
+                  <Twitter size={16} />
+                  X.COM
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Hotel */}
+          <div>
+            <h4 className="font-bold uppercase text-[#1a1a1a] text-base mb-4">HOTEL</h4>
+            <address className="not-italic space-y-3">
+              <a href="mailto:reservations@eminpasha.com" className="block uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
+                RESERVATIONS@EMINPASHA.COM
+              </a>
+              <a href="tel:+256312264712" className="block uppercase text-sm text-[rgba(26,26,26,0.85)] hover:text-[#1a1a1a] transition-colors">
                 +256 312 264 712
               </a>
-              <a
-                href="https://wa.me/256764042543"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block link-underline w-fit"
-              >
-                WhatsApp: +256 764 042 543
-              </a>
-              <a href="mailto:reservations@eminpasha.com" className="block link-underline w-fit">
-                reservations@eminpasha.com
-              </a>
-            </div>
-            <p className="mt-3 md:mt-4 text-xs opacity-70">24-hour telephone assistance</p>
+              <p className="uppercase text-sm text-[rgba(26,26,26,0.85)]">
+                PLOT 27 AKII-BUA ROAD,<br />
+                NAKASERO, KAMPALA<br />
+                UGANDA
+              </p>
+            </address>
           </div>
         </div>
-      </div>
 
-      {/* Divider */}
-      <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12">
-        <div className="h-px w-full bg-[rgba(220,201,180,0.18)]" />
-      </div>
+        {/* Divider */}
+        <div className="h-px w-full bg-[rgba(0,0,0,0.08)] mb-8" />
 
-      {/* Bottom bar */}
-      <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs opacity-70">
-        <p>© 2026 The Emin Pasha Hotel &amp; Spa. Kampala, Uganda.</p>
-        <div className="flex flex-wrap items-center gap-4 justify-center">
-          <a href="/privacy-policy" className="link-underline">
-            Privacy Policy
-          </a>
-          <span>•</span>
-          <a href="/cookies-policy" className="link-underline">
-            Cookies Policy
-          </a>
-          <span>•</span>
-          <a href="/legal-notice" className="link-underline">
-            Legal Notice
-          </a>
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="uppercase text-xs tracking-[0.3em] text-[rgba(26,26,26,0.6)]">
+            COPYRIGHT © 2026
+          </p>
+          <div className="flex items-center gap-2">
+            <svg width="24" height="24" viewBox="0 0 80 80" className="text-[rgba(26,26,26,0.6)]">
+              <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <text x="40" y="52" textAnchor="middle" fontSize="42" fontWeight="700" fontFamily="serif" fill="currentColor">E</text>
+            </svg>
+            <p className="uppercase text-xs text-[rgba(26,26,26,0.6)]">
+              WE ARE <span className="font-bold text-[#1a1a1a]">EMIN PASHA</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

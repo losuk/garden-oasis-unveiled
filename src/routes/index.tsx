@@ -254,6 +254,59 @@ function Home() {
         </div>
       </div>
 
+      {/* AWARDS & RECOGNITION */}
+      <section id="awards-recognition" className="py-20 md:py-28">
+        <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12">
+          <div className="text-center mb-10 md:mb-16">
+            <p className="eyebrow">
+              <span className="rule-gold mr-4" />
+              Recognition
+              <span className="rule-gold ml-4" />
+            </p>
+            <h2 className="mt-6 md:mt-8 font-display text-3xl md:text-5xl leading-[1.05] text-forest max-w-3xl mx-auto">
+              Recognised by travelers and industry alike
+            </h2>
+          </div>
+
+          {/* AWARD LOGOS */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto items-center justify-items-center">
+            <a
+              href="https://www.tripadvisor.com/Hotel_Review-g293841-d602921-Reviews-The_Emin_Pasha_Hotel_Spa-Kampala_Central_Region.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <img
+                src="/images/awards/award1.png"
+                alt="Tripadvisor Award"
+                className="max-h-28 md:max-h-40 object-contain rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:drop-shadow-lg"
+              />
+            </a>
+            <div className="group">
+              <img
+                src="/images/awards/award2.jpg"
+                alt="Award 2"
+                className="max-h-28 md:max-h-40 object-contain rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:drop-shadow-lg"
+              />
+            </div>
+            <div className="group">
+              <img
+                src="/images/awards/awards3.jpeg"
+                alt="Award 3"
+                className="max-h-28 md:max-h-40 object-contain rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:drop-shadow-lg"
+              />
+            </div>
+            <div className="group">
+              <img
+                src="/images/awards/awards4.svg"
+                alt="Award 4"
+                className="max-h-28 md:max-h-40 object-contain rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:drop-shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED ROOMS — editorial split */}
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-12">
